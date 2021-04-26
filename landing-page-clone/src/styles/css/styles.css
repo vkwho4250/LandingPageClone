@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 6.25%;
+}
+
+body {
+  overflow: none;
+  font: 14rem "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.title-container {
+  position: absolute;
+  font-size: 4vw;
+  text-align: center;
+}
+.title-container h1 {
+  font-weight: 500;
+}
+
+.home {
+  background-image: url("../../assets/mountain.jpg");
+  background-position: 0% 40%;
+  background-size: cover;
+}
+
+.lift-panel {
+  transition: 1s all;
+}
+.lift-panel.border {
+  border-right: 0.5rem solid black;
+}
+.lift-panel:hover {
+  box-shadow: 0 0 30rem 20rem rgba(0, 0, 0, 0.4);
+}
+
+.page-view {
+  width: 100vw;
+  height: 100vh;
+  border: 1rem solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: row;
+}
+
+.panel-container {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: row;
+}
+
+.panel-display {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  overflow: hidden;
+  box-shadow: 0 0 30rem 10rem rgba(0, 0, 0, 0.2);
+}

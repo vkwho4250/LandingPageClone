@@ -1,0 +1,27 @@
+.title-container {
+   position: absolute;
+   font-size: 4vw;
+
+   text-align: center;
+
+   h1 {
+      font-weight: 500;
+   }
+}
+
+.home {
+   background-image: url("../../assets/mountain.jpg");
+   background-position: 0% 40%;
+   background-size: cover;
+}
+
+.lift-panel {
+   transition: 1s all;
+   &.border {
+      border-right: 0.5rem solid black;
+   }
+
+   &:hover {
+      box-shadow: 0 0 30rem 20rem rgba(black, 0.4);
+   }
+}
