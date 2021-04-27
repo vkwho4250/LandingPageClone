@@ -2,7 +2,9 @@
    display: flex;
    justify-content: $justify;
    align-items: $align;
-   direction: $direction;
+   flex-direction: $direction;
 }
 
-$thisRed: rgb(243, 182, 182);
+$siteYellow: #ebd301;
+$light-gray: #1e1e1e;
+$dark-gray: #1b1b1b;

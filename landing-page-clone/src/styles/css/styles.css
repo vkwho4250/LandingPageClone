@@ -14,21 +14,19 @@ body {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Barlow Condensed", sans-serif;
+h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
 }
 
-.title-container {
-  position: absolute;
-  font-size: 4vw;
-  text-align: center;
+a {
+  position: relative;
+  z-index: 99;
+  text-decoration: none;
+  color: #ebd301;
 }
-.title-container h1 {
-  font-weight: 500;
+a:hover {
+  color: #fee721;
 }
 
 .home {
@@ -37,7 +35,70 @@ h6 {
   background-size: cover;
 }
 
+.side-badges {
+  position: absolute;
+  top: 55rem;
+  left: 0;
+}
+
+.triangle {
+  position: absolute;
+  top: 5vh;
+  width: 85%;
+  height: 85%;
+  fill: #ebd301;
+  stroke: #ebd301;
+  stroke-width: 5rem;
+}
+
+.mouse-scroll {
+  position: absolute;
+  bottom: 2vh;
+  width: 27rem;
+  height: 40rem;
+  border: 2rem solid white;
+  border-radius: 18rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.mouse-scroll .scroll {
+  margin-top: 3.5rem;
+  width: 2rem;
+  height: 8rem;
+  background: white;
+}
+
+.title-container {
+  position: absolute;
+  text-align: center;
+  padding-top: 13vh;
+}
+.title-container h1 {
+  font-size: 16vw;
+  line-height: 75%;
+  color: white;
+}
+.title-container h4 {
+  font-size: calc(max(1vw, 14rem));
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  letter-spacing: -1rem;
+}
+.title-container.silhouette {
+  transform: scale(1.15);
+  opacity: 0.3;
+  padding-bottom: 3vh;
+}
+.title-container.silhouette h1 {
+  line-height: 85%;
+}
+
 .lift-panel {
+  position: relative;
+  z-index: 5;
   transition: 1s all;
 }
 .lift-panel.border {
@@ -54,16 +115,18 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  direction: row;
+  flex-direction: row;
 }
 
 .panel-container {
+  position: relative;
   width: 90vw;
   height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  direction: row;
+  flex-direction: row;
+  box-shadow: 0 0 60rem 40rem rgba(0, 0, 0, 0.1);
 }
 
 .panel-display {
@@ -73,4 +136,31 @@ h6 {
   grid-template-columns: repeat(5, 1fr);
   overflow: hidden;
   box-shadow: 0 0 30rem 10rem rgba(0, 0, 0, 0.2);
+}
+
+.badge {
+  position: relative;
+  padding: 10rem 0 12rem;
+  height: 166rem;
+  width: 54rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.badge h3 {
+  font-size: 21rem;
+  text-align: center;
+}
+.badge h3 span {
+  font-size: 27rem;
+  position: absolute;
+  top: 3rem;
+}
+.badge h4 {
+  font-size: 13rem;
+  font-weight: 600;
+  writing-mode: vertical-rl;
+  transform: scale(-1);
 }

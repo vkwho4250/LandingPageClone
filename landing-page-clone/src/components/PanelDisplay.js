@@ -1,6 +1,6 @@
 import LiftPanel from "./LiftPanel";
 
-function PanelDisplay() {
+function PanelDisplay(page, panelInfo) {
    return <div className="panel-display"></div>;
 }
 
