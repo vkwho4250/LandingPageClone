@@ -1,0 +1,28 @@
+$description-indent: 20%;
+
+.page-default {
+   .heading {
+      h2:last-child {
+         padding-left: 8%;
+      }
+   }
+
+   .big-yellow-btn {
+      position: absolute;
+      bottom: 15vh;
+      left: $description-indent;
+   }
+
+   .description {
+      position: absolute;
+      width: 22vw;
+      top: 52%;
+      left: $description-indent;
+   }
+
+   .circle-btn {
+      position: absolute;
+      top: 3vh;
+      right: 4vh;
+   }
+}

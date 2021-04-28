@@ -1,9 +1,10 @@
+@use "../global" as *;
+
 .practice {
    padding: 7vh 4.5vw;
 
-   .heading {
-      h2:last-child {
-         padding-left: 8%;
-      }
+   .list-container {
+      @include flex-container(space-between, center);
+      width: 75%;
    }
 }
