@@ -1,12 +1,9 @@
 @use "../global" as *;
 
-.panel-container {
-   position: relative;
-   width: 90vw;
-   height: 90vh;
-   @include flex-container(center, center);
-   box-shadow: 0 0 60rem 40rem rgba(black, 0.1);
-}
+// .panel-container {
+//    @extend %content-container;
+//    @include flex-container(center, center);
+// }
 
 .panel-display {
    width: 100%;

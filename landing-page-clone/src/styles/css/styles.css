@@ -1,3 +1,27 @@
+.panel-container, .main-container {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  box-shadow: 0 0 2vw 1vw rgba(0, 0, 0, 0.2);
+}
+
+.panel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +41,11 @@ h1,
 h2 {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
+}
+
+h2 {
+  font-size: 6.8vw;
+  line-height: 95%;
 }
 
 a {
@@ -108,25 +137,20 @@ a:hover {
   box-shadow: 0 0 30rem 20rem rgba(0, 0, 0, 0.4);
 }
 
+.practice {
+  padding: 7vh 4.5vw;
+}
+.practice .heading h2:last-child {
+  padding-left: 8%;
+}
+
 .page-view {
   width: 100vw;
   height: 100vh;
-  border: 1rem solid red;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-}
-
-.panel-container {
-  position: relative;
-  width: 90vw;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  box-shadow: 0 0 60rem 40rem rgba(0, 0, 0, 0.1);
 }
 
 .panel-display {

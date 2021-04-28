@@ -1,10 +1,10 @@
 @use "../global" as *;
 
 @forward "./Home";
+@forward "./Practice";
 
 .page-view {
    width: 100vw;
    height: 100vh;
-   border: 1rem solid red;
    @include flex-container(center, center);
 }

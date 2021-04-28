@@ -1,4 +1,5 @@
 @use "./abstracts" as *;
+@use "./layout" as *;
 
 * {
    margin: 0;
@@ -13,12 +14,18 @@ html {
 body {
    overflow: none;
    font: 14rem "Open Sans", sans-serif;
+   @extend %hide-scrollbars;
 }
 
 h1,
 h2 {
    font-family: "Bebas Neue", sans-serif;
    font-weight: 400;
+}
+
+h2 {
+   font-size: 6.8vw;
+   line-height: 95%;
 }
 
 a {

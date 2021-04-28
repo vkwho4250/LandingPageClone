@@ -1,0 +1,25 @@
+@use "./abstracts" as *;
+
+%content-container {
+   position: relative;
+   width: 90vw;
+   height: 90vh;
+   box-shadow: 0 0 2vw 1vw rgba(black, 0.2);
+}
+
+.main-container {
+   @extend %content-container;
+}
+
+.panel-container {
+   @extend %content-container;
+   @include flex-container(center, center);
+}
+
+%hide-scrollbars {
+   &::-webkit-scrollbar {
+      display: none;
+   }
+   -ms-overflow-style: none; /* IE and Edge */
+   scrollbar-width: none; /* Firefox */
+}
