@@ -1,0 +1,46 @@
+@use "../global" as *;
+
+$button-size: 25rem;
+
+.slide-btn {
+   width: $button-size;
+   overflow: hidden;
+
+   &:hover {
+      .text-container {
+         transform: translateX(-$button-size); //!remove later
+      }
+   }
+
+   .text-container {
+      @include flex-container(flex-start, center);
+      transition: all 1s; // !remove later
+
+      .left {
+         transform: scale(-1);
+      }
+   }
+
+   .text-container.left {
+      @include flex-container(flex-end, center);
+   }
+
+   h3 {
+      width: $button-size;
+      font-size: 22rem;
+      writing-mode: vertical-rl;
+      order: 2;
+   }
+
+   .yellow {
+      color: $siteYellow;
+   }
+
+   .yellow.left {
+      order: 1;
+   }
+
+   .thin {
+      font-weight: 300;
+   }
+}

@@ -32,3 +32,25 @@
    right: 0;
    @include flex-container(center, flex-start, column);
 }
+
+.sidebar {
+   position: fixed;
+   z-index: 99;
+   width: 5vw;
+   height: 100vh;
+   @include flex-container(space-between, center, column);
+   padding: 4vh 0;
+}
+
+.list-container {
+   @include flex-container(space-between, center);
+   width: 75%;
+}
+
+.buttons-container {
+   @include flex-container(space-around, center, column);
+
+   li {
+      padding: 5rem 0;
+   }
+}

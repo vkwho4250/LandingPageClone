@@ -32,6 +32,36 @@ body::-webkit-scrollbar {
   flex-direction: column;
 }
 
+.sidebar {
+  position: fixed;
+  z-index: 99;
+  width: 5vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 4vh 0;
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 75%;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.buttons-container li {
+  padding: 5rem 0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -62,13 +92,10 @@ h2 {
 h3 {
   font-family: "Barlow Condensed", sans-serif;
   text-transform: uppercase;
-  font-size: 1.6vw;
-  font-weight: 300;
-  letter-spacing: -1rem;
 }
 
 h5 {
-  font-size: 1.05vw;
+  font-size: calc(max(1.05vw, 14rem));
   font-weight: 400;
   color: #494949;
 }
@@ -162,10 +189,10 @@ button {
 }
 .title-container h4 {
   font-size: calc(max(1vw, 14rem));
-  text-transform: uppercase;
   color: white;
   font-weight: 600;
   letter-spacing: -1rem;
+  text-transform: uppercase;
 }
 .title-container.silhouette {
   transform: scale(1.15);
@@ -188,17 +215,6 @@ button {
   box-shadow: 0 0 30rem 20rem rgba(0, 0, 0, 0.4);
 }
 
-.practice {
-  padding: 7vh 4.5vw;
-}
-.practice .list-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  width: 75%;
-}
-
 .page-view {
   width: 100vw;
   height: 100vh;
@@ -206,6 +222,7 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  position: relative;
 }
 
 .panel-display {
@@ -229,6 +246,7 @@ button {
   flex-direction: column;
 }
 .badge h3 {
+  font-family: inherit;
   font-size: 21rem;
   text-align: center;
 }
@@ -262,6 +280,11 @@ button {
   opacity: 0;
 }
 
+.page-default {
+  padding: 7vh 4.5vw;
+  height: 100%;
+  background: white;
+}
 .page-default .heading h2:last-child {
   padding-left: 8%;
 }
@@ -273,13 +296,23 @@ button {
 .page-default .description {
   position: absolute;
   width: 22vw;
-  top: 52%;
+  top: 50%;
   left: 20%;
 }
 .page-default .circle-btn {
   position: absolute;
   top: 3vh;
   right: 4vh;
+}
+
+.dark {
+  background: #1e1e1e;
+}
+.dark h2 {
+  color: white;
+}
+.dark .description {
+  color: #a4a4a4;
 }
 
 .list-item {
@@ -291,7 +324,7 @@ button {
 }
 .list-item:hover .dash {
   transform: rotate(90deg) translateX(-10rem) translateY(-5rem);
-  border-top: 1rem solid black;
+  border-bottom: 1rem solid black;
   margin: 0 15rem 0 0;
 }
 .list-item:hover h3 {
@@ -304,12 +337,15 @@ button {
   min-width: 1.6vw;
 }
 .list-item h3 {
+  font-weight: 300;
+  font-size: 1.6vw;
+  letter-spacing: -1rem;
   transition: all 0.3s ease-in;
 }
 .list-item .dash {
   margin: 0 10rem 0 5rem;
   width: 22rem;
-  border: 1rem solid #ebd301;
+  border-bottom: 1rem solid #ebd301;
   transition: all 0.3s ease-in;
   transform-origin: bottom left;
 }
@@ -336,4 +372,90 @@ button {
     opacity: 0;
     transform: scale(3.5);
   }
+}
+.sliding-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  bottom: 10vh;
+  height: 50vh;
+  width: 100%;
+  color: gray;
+  opacity: 0.07;
+  border: 1rem solid red;
+}
+.sliding-text:last-child {
+  overflow: hidden;
+}
+.sliding-text h1 {
+  font-size: 15vw;
+  line-height: 80%;
+  margin-left: 1vw;
+}
+
+.tier {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.text-outline {
+  color: rgba(128, 128, 128, 0);
+  padding-top: 2.7vw;
+  -webkit-text-stroke: 2rem gray;
+  transform: rotate(180deg);
+}
+
+.carousel {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+#right-sidebar {
+  right: 0;
+}
+
+.slide-btn {
+  width: 25rem;
+  overflow: hidden;
+}
+.slide-btn:hover .text-container {
+  transform: translateX(-25rem);
+}
+.slide-btn .text-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  transition: all 1s;
+}
+.slide-btn .text-container .left {
+  transform: scale(-1);
+}
+.slide-btn .text-container.left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+}
+.slide-btn h3 {
+  width: 25rem;
+  font-size: 22rem;
+  writing-mode: vertical-rl;
+  order: 2;
+}
+.slide-btn .yellow {
+  color: #ebd301;
+}
+.slide-btn .yellow.left {
+  order: 1;
+}
+.slide-btn .thin {
+  font-weight: 300;
 }

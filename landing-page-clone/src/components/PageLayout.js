@@ -1,9 +1,15 @@
 import YellowButton from "../components/YellowButton";
 import PulseButton from "../components/PulseButton";
 
-function PageLayout({ firstHeader, secondHeader, description, btnText }) {
+function PageLayout({
+   firstHeader,
+   secondHeader,
+   description,
+   btnText,
+   display = "light",
+}) {
    return (
-      <div className="page-default">
+      <div className={`page-default ${display}`}>
          <div className="heading">
             <h2>{firstHeader}</h2>
             <h2>{secondHeader}</h2>

@@ -9,6 +9,7 @@
    @include flex-container(space-between, center, column);
 
    h3 {
+      font-family: inherit;
       font-size: 21rem;
       text-align: center;
 

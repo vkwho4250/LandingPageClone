@@ -1,5 +1,6 @@
 import PageLayout from "../components/PageLayout";
 import ListItem from "../components/ListItem";
+import SlidingText from "../components/SlidingText";
 
 function Practice() {
    const description =
@@ -9,8 +10,10 @@ function Practice() {
    const rightList = ["Web Developement", "3D Modeling", "Design Thinking"];
 
    return (
-      <div id="practice-page" className="page-view">
+      <section id="practice-page" className="page-view">
          <div className="main-container practice">
+            <SlidingText firstSection="UI/UX" secondSection="Design" />
+            <SlidingText firstSection="UI/UX" secondSection="Design" />
             <PageLayout
                firstHeader="What"
                secondHeader="We Do"
@@ -37,7 +40,7 @@ function Practice() {
                </div>
             </div>
          </div>
-      </div>
+      </section>
    );
 }
 

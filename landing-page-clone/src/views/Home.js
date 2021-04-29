@@ -4,7 +4,7 @@ function Home() {
    const panels = [...Array(5).keys()];
 
    return (
-      <div id="Home" className="page-view">
+      <section id="home-pagr" className="page-view">
          <div className="panel-container">
             <div className="side-badges">
                <Badge text="Honors" color="#9BD4D7" />
@@ -44,7 +44,7 @@ function Home() {
                })}
             </div>
          </div>
-      </div>
+      </section>
    );
 }
 
