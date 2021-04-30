@@ -16,6 +16,28 @@
    @include flex-container(center, center);
 }
 
+%scrollbar {
+   &::-webkit-scrollbar {
+      width: 14rem;
+   }
+
+   /* Track */
+   &::-webkit-scrollbar-track {
+      background: $light-gray;
+      border: 6rem solid white;
+
+      &:hover {
+         background: darken($light-gray, 20%);
+      }
+   }
+
+   /* Handle */
+   &::-webkit-scrollbar-thumb {
+      background: $siteYellow;
+      border: 10rem solid $siteYellow;
+   }
+}
+
 %hide-scrollbars {
    &::-webkit-scrollbar {
       display: none;

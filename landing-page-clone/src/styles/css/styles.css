@@ -12,6 +12,25 @@
   flex-direction: row;
 }
 
+.paragraph-container {
+  /* Track */
+  /* Handle */
+}
+.paragraph-container::-webkit-scrollbar {
+  width: 14rem;
+}
+.paragraph-container::-webkit-scrollbar-track {
+  background: #a4a4a4;
+  border: 6rem solid white;
+}
+.paragraph-container::-webkit-scrollbar-track:hover {
+  background: #717171;
+}
+.paragraph-container::-webkit-scrollbar-thumb {
+  background: #ebd301;
+  border: 10rem solid #ebd301;
+}
+
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -213,6 +232,49 @@ button {
 }
 .lift-panel:hover {
   box-shadow: 0 0 30rem 20rem rgba(0, 0, 0, 0.4);
+}
+
+.text-content-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  padding: 10vh 3vw 5vh 0;
+  text-align: justify;
+}
+.text-content-container h1 {
+  color: #ebd301;
+  font-size: 2.3vw;
+  letter-spacing: -2rem;
+  line-height: 100%;
+  margin-bottom: 2vh;
+}
+
+.paragraph-container {
+  padding-right: 3vw;
+  height: 85%;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.paragraph-container .list-title {
+  font-size: 18rem;
+}
+.paragraph-container h3 {
+  margin: 1.5vh 0;
+  font-size: 16rem;
+}
+.paragraph-container ol {
+  padding-left: 1.3vw;
+}
+.paragraph-container li {
+  list-style: decimal-leading-zero;
+  font: 16rem "Barlow Condensed", sans-serif;
+  font-weight: 600;
+}
+.paragraph-container li p {
+  font: 14rem "Open Sans", sans-serif;
 }
 
 .page-view {

@@ -1,0 +1,51 @@
+@use "../global" as *;
+
+.text-content-container {
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 40%;
+   height: 100%;
+   padding: 10vh 3vw 5vh 0;
+   text-align: justify;
+
+   h1 {
+      color: $siteYellow;
+      font-size: 2.3vw;
+      letter-spacing: -2rem;
+      line-height: 100%;
+      margin-bottom: 2vh;
+   }
+}
+
+.paragraph-container {
+   padding-right: 3vw;
+   height: 85%;
+   width: 100%;
+   overflow-y: scroll;
+   overflow-x: hidden;
+   @extend %scrollbar;
+
+   .list-title {
+      font-size: 18rem;
+   }
+
+   h3 {
+      margin: 1.5vh 0;
+      font-size: 16rem;
+   }
+
+   ol {
+      padding-left: 1.3vw;
+   }
+
+   li {
+      list-style: decimal-leading-zero;
+      font: 16rem "Barlow Condensed", sans-serif;
+      font-weight: 600;
+
+      p {
+         font: 14rem "Open Sans", sans-serif;
+      }
+   }
+}
