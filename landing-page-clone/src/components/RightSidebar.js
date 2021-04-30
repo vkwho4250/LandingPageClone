@@ -8,9 +8,8 @@ function RightSidebar() {
          <ul className="buttons-container">
             {languages.map((language, index) => {
                return (
-                  <li>
+                  <li key={index}>
                      <SlideButton
-                        key={index}
                         text={language}
                         weight={index !== 0 ? "thin" : "default"}
                      />

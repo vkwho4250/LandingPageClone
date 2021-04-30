@@ -137,6 +137,20 @@ li {
   list-style: none;
 }
 
+label {
+  display: block;
+  text-transform: uppercase;
+}
+
+textarea,
+input {
+  outline: none;
+  background: none;
+  border: none;
+  resize: none;
+  font: inherit;
+}
+
 button {
   border: none;
   background: none;
@@ -277,6 +291,108 @@ button {
   font: 14rem "Open Sans", sans-serif;
 }
 
+.contact {
+  overflow: hidden;
+}
+.contact .big-yellow-btn:hover {
+  transform: translateY(0);
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  padding-top: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}
+header h1 {
+  position: absolute;
+  font-size: 14vw;
+  line-height: 70%;
+}
+header h1:last-child {
+  transform-origin: center bottom;
+  transform: scale(1.2);
+  letter-spacing: 10rem;
+  opacity: 0.03;
+}
+header .triangle {
+  position: absolute;
+  top: 10rem;
+  height: 55%;
+  stroke-width: 0;
+}
+header .floating-mountains {
+  position: absolute;
+  top: 5vh;
+  transform: scale(1.1);
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70%;
+  padding: 0 5vw;
+  border: 1rem solid red;
+}
+
+.contact-details {
+  position: relative;
+  height: 80%;
+  width: 50%;
+  border: 1rem solid blue;
+}
+.contact-details h2 {
+  font-size: 2vw;
+  line-height: initial;
+}
+.contact-details h5 {
+  font-size: calc(max(0.9vw, 16rem));
+  width: 40%;
+  margin: 4vh 0 3vh;
+}
+
+.contact-method-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 80%;
+  margin: 3vh 0;
+}
+
+.contact-method {
+  height: 9vh;
+  overflow: hidden;
+}
+.contact-method h3 {
+  font-size: 1.2vw;
+}
+.contact-method a {
+  font-size: 1.8vh;
+  cursor: pointer;
+  border-bottom: 2rem solid #ebd301;
+  transition: all 0.8s ease-in;
+}
+.contact-method a:hover {
+  padding-bottom: 5rem;
+}
+.contact-method .contact-info {
+  font-size: 1.8vh;
+  display: inline-block;
+  margin: 1vh 0;
+  color: #494949;
+  padding-bottom: 12vh;
+}
+
 .page-view {
   width: 100vw;
   height: 100vh;
@@ -325,7 +441,7 @@ button {
 }
 
 .big-yellow-btn {
-  position: absolute;
+  position: relative;
   width: 18vw;
   height: 9vh;
   background: #ebd301;
@@ -520,4 +636,35 @@ button {
 }
 .slide-btn .thin {
   font-weight: 300;
+}
+
+#contact-form {
+  padding-top: 3vh;
+  width: 70%;
+  position: absolute;
+  right: 0;
+}
+#contact-form label,
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 5rem;
+  font-size: 0.9vw;
+}
+#contact-form input,
+#contact-form textarea {
+  border-bottom: 2rem solid rgba(164, 164, 164, 0.5);
+}
+#contact-form .active label {
+  color: #ebd301;
+}
+#contact-form .active textarea,
+#contact-form .active input {
+  border-bottom: 2rem solid #ebd301;
+}
+#contact-form .big-yellow-btn {
+  width: 55%;
+  position: absolute;
+  right: 0;
+  margin: 2vh 1vw 0 0;
 }

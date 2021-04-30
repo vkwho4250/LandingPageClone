@@ -24,13 +24,16 @@ function Practice() {
                <div className="list-container">
                   <ul className="left-column">
                      {leftList.map((service, index) => {
-                        return <ListItem index={index} item={service} />;
+                        return (
+                           <ListItem key={index} index={index} item={service} />
+                        );
                      })}
                   </ul>
                   <ul className="right-column">
                      {rightList.map((service, index) => {
                         return (
                            <ListItem
+                              key={index}
                               index={index + leftList.length}
                               item={service}
                            />

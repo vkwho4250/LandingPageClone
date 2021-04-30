@@ -1,0 +1,39 @@
+@use "../global" as *;
+
+#contact-form {
+   padding-top: 3vh;
+   width: 70%;
+   position: absolute;
+   right: 0;
+
+   label,
+   input,
+   textarea {
+      width: 100%;
+      padding: 5rem;
+      font-size: 0.9vw;
+   }
+
+   input,
+   textarea {
+      border-bottom: 2rem solid rgba($light-gray, 0.5);
+   }
+
+   .active {
+      label {
+         color: $siteYellow;
+      }
+
+      textarea,
+      input {
+         border-bottom: 2rem solid $siteYellow;
+      }
+   }
+
+   .big-yellow-btn {
+      width: 55%;
+      position: absolute;
+      right: 0;
+      margin: 2vh 1vw 0 0;
+   }
+}

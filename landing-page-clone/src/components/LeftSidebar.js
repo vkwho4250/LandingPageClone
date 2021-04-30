@@ -11,8 +11,8 @@ function LeftSidebar() {
          <ul className="buttons-container">
             {socials.map((social, index) => {
                return (
-                  <li>
-                     <SlideButton key={index} text={social} direction="left" />
+                  <li key={index}>
+                     <SlideButton text={social} direction="left" />
                   </li>
                );
             })}
