@@ -12,6 +12,15 @@
   flex-direction: row;
 }
 
+.panel-display {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  overflow: hidden;
+  box-shadow: 0 0 30rem 10rem rgba(0, 0, 0, 0.2);
+}
+
 .paragraph-container {
   /* Track */
   /* Handle */
@@ -170,8 +179,7 @@ button {
 }
 
 .home {
-  background-image: url("../../assets/mountain.jpg");
-  background-position: 0% 40%;
+  background-image: url("../../assets/mountain-landscape.jpg");
   background-size: cover;
 }
 
@@ -213,7 +221,7 @@ button {
 .title-container {
   position: absolute;
   text-align: center;
-  padding-top: 13vh;
+  padding-top: 10vh;
 }
 .title-container h1 {
   font-size: 16vw;
@@ -341,14 +349,12 @@ header .floating-mountains {
   width: 100%;
   height: 70%;
   padding: 0 5vw;
-  border: 1rem solid red;
 }
 
 .contact-details {
   position: relative;
   height: 80%;
   width: 50%;
-  border: 1rem solid blue;
 }
 .contact-details h2 {
   font-size: 2vw;
@@ -393,6 +399,39 @@ header .floating-mountains {
   padding-bottom: 12vh;
 }
 
+.awards-list-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  padding: 10vh 0 0 6vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.award {
+  color: #a4a4a4;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 80%;
+  margin-bottom: 6vh;
+}
+.award h1 {
+  font-size: calc(max(2vw, 20rem));
+  width: 50%;
+}
+.award h1 span {
+  color: #ebd301;
+}
+.award p {
+  font-size: calc(max(0.9vw, 16rem));
+}
+
 .page-view {
   width: 100vw;
   height: 100vh;
@@ -401,15 +440,6 @@ header .floating-mountains {
   align-items: center;
   flex-direction: row;
   position: relative;
-}
-
-.panel-display {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  overflow: hidden;
-  box-shadow: 0 0 30rem 10rem rgba(0, 0, 0, 0.2);
 }
 
 .badge {
@@ -599,6 +629,11 @@ header .floating-mountains {
   right: 0;
 }
 
+#left-sidebar .logo {
+  transform: rotate(-90deg) translateX(-50%);
+  width: 15vh;
+}
+
 .slide-btn {
   width: 25rem;
   overflow: hidden;
@@ -667,4 +702,44 @@ header .floating-mountains {
   position: absolute;
   right: 0;
   margin: 2vh 1vw 0 0;
+}
+
+.project-panel {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+}
+
+.project-image {
+  filter: brightness(0.3);
+}
+
+.project-details {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+}
+.project-details h1 {
+  font-size: 50vh;
+  background: linear-gradient(white, #a4a4a4);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  height: 45vh;
+  line-height: 100%;
+}
+.project-details h2 {
+  font-size: 2vw;
+  height: 10vh;
+}
+.project-details p {
+  color: white;
+}
+
+.border {
+  border-right: 1rem solid black;
 }

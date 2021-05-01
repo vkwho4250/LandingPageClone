@@ -1,0 +1,41 @@
+@use "../global" as *;
+
+.project-panel {
+   height: 100%;
+   width: 100%;
+   @include flex-container(flex-start, center, column);
+   text-align: center;
+   overflow: hidden;
+}
+
+.project-image {
+   filter: brightness(0.3);
+}
+
+.project-details {
+   position: absolute;
+   top: 0;
+   z-index: 5;
+
+   h1 {
+      font-size: 50vh;
+      background: linear-gradient(white, $light-gray);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      height: 45vh;
+      line-height: 100%;
+   }
+
+   h2 {
+      font-size: 2vw;
+      height: 10vh;
+   }
+
+   p {
+      color: white;
+   }
+}
+
+.border {
+   border-right: 1rem solid black;
+}

@@ -1,0 +1,32 @@
+@use "../global" as *;
+
+.awards-list-container {
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 50%;
+   height: 100%;
+   padding: 10vh 0 0 6vw;
+
+   @include flex-container(center, flex-start, column);
+}
+
+.award {
+   color: $light-gray;
+   @include flex-container(flex-start, center);
+   width: 80%;
+   margin-bottom: 6vh;
+
+   h1 {
+      font-size: calc(max(2vw, 20rem));
+      width: 50%;
+
+      span {
+         color: $siteYellow;
+      }
+   }
+
+   p {
+      font-size: calc(max(0.9vw, 16rem));
+   }
+}

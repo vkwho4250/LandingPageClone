@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import YellowButton from "../components/YellowButton";
 
 function Form() {
    const [inFocus, setInFocus] = useState("");
+   const [showThemeLabel, setShowThemeLabel] = useState(false);
+   const [showMessageLabel, setMessageThemeLabel] = useState(false);
 
    const changeFocus = (e) => {
       setInFocus(e.target["id"]);

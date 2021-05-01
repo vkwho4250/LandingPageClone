@@ -1,8 +1,8 @@
 @use "../global" as *;
 
 .home {
-   background-image: url("../../assets/mountain.jpg");
-   background-position: 0% 40%;
+   background-image: url("../../assets/mountain-landscape.jpg");
+   // background-position: 0% 40%;
    background-size: cover;
 }
 
@@ -42,7 +42,7 @@
 .title-container {
    position: absolute;
    text-align: center;
-   padding-top: 13vh;
+   padding-top: 10vh;
 
    h1 {
       font-size: 16vw;
