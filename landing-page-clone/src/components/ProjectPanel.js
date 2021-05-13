@@ -1,16 +1,51 @@
-function ProjectPanel({ index, project }) {
+import { motion } from "framer-motion";
+import Animations from "../animation";
+
+function ProjectPanel({ index, project, whichPanel, hoverPanel }) {
    return (
-      <div className={`project-panel ${index !== 4 ? "border" : ""}`}>
+      <motion.div
+         id={`panel-${index + 1}`}
+         className={`project-panel ${index !== 4 ? "border" : ""}`}
+         onMouseEnter={whichPanel}
+         onMouseLeave={whichPanel}
+         variants={Animations.movement}
+         initial="initialY"
+         animate="endingXY"
+         custom={500}
+         transition={{ duration: 0.5, delay: index * 0.2, ease: "linear" }}
+      >
          <img
             className="project-image"
             src={`${process.env.PUBLIC_URL}/assets/projects/${project.img}`}
          ></img>
          <div className="project-details">
-            <h1>{project.letter}</h1>
+            <motion.h1
+               variants={Animations.textSlide}
+               initial="hidden"
+               animate={
+                  hoverPanel === `panel-${index + 1}` ? "active" : "hidden"
+               }
+               transition={{
+                  duration: 0.5,
+               }}
+            >
+               {project.letter}
+            </motion.h1>
             <h2>{project.client}</h2>
-            <p>{project.description}</p>
+            <motion.p
+               variants={Animations.textSlide}
+               initial="hidden"
+               animate={
+                  hoverPanel === `panel-${index + 1}` ? "active" : "hidden"
+               }
+               transition={{
+                  duration: 0.5,
+               }}
+            >
+               {project.description}
+            </motion.p>
          </div>
-      </div>
+      </motion.div>
    );
 }
 

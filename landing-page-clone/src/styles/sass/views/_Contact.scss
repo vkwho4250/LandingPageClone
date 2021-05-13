@@ -19,10 +19,11 @@ header {
 
    h1 {
       position: absolute;
+      top: 15vh;
       font-size: 14vw;
       line-height: 70%;
 
-      &:last-child {
+      &:first-child {
          transform-origin: center bottom;
          transform: scale(1.2);
          letter-spacing: 10rem;
@@ -30,9 +31,16 @@ header {
       }
    }
 
-   .triangle {
+   .container {
       position: absolute;
-      top: 10rem;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      @include flex-container(center, flex-start);
+   }
+
+   .triangle {
+      top: 15rem;
       height: 55%;
       stroke-width: 0;
    }

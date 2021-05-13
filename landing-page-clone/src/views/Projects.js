@@ -1,4 +1,5 @@
 import ProjectPanel from "../components/ProjectPanel";
+import { useState } from "react";
 
 function Projects() {
    const projects = [
@@ -34,6 +35,16 @@ function Projects() {
       },
    ];
 
+   const [hoverPanel, setHoverPanel] = useState("");
+
+   function whichPanel(e) {
+      if (e.type === "mouseleave") {
+         setHoverPanel("");
+      } else {
+         setHoverPanel(e.currentTarget.id);
+      }
+   }
+
    return (
       <section id="projects-page" className="page-view dark">
          <div className="main-container">
@@ -44,6 +55,8 @@ function Projects() {
                         key={index}
                         index={index}
                         project={project}
+                        whichPanel={whichPanel}
+                        hoverPanel={hoverPanel}
                      />
                   );
                })}

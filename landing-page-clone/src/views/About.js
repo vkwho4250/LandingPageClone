@@ -1,4 +1,6 @@
 import PageLayout from "../components/PageLayout";
+import { motion } from "framer-motion";
+import Animations from "../animation";
 
 function About() {
    const description =
@@ -23,7 +25,14 @@ function About() {
                description={description}
                btnText="Start Project"
             />
-            <div className="text-content-container">
+            <motion.div
+               className="text-content-container"
+               variants={Animations.movement}
+               initial="initialX"
+               custom={-20}
+               animate="endingXY"
+               transition={{ duration: 0.75, delay: 0.5 }}
+            >
                <h1>
                   This is a filler text, you don't have to read this. If you can
                   though, I'd be impressed ;&#93;{" "}
@@ -65,7 +74,7 @@ function About() {
                      })}
                   </ol>
                </div>
-            </div>
+            </motion.div>
          </div>
       </section>
    );

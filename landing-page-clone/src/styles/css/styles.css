@@ -318,18 +318,28 @@ header {
 }
 header h1 {
   position: absolute;
+  top: 15vh;
   font-size: 14vw;
   line-height: 70%;
 }
-header h1:last-child {
+header h1:first-child {
   transform-origin: center bottom;
   transform: scale(1.2);
   letter-spacing: 10rem;
   opacity: 0.03;
 }
-header .triangle {
+header .container {
   position: absolute;
-  top: 10rem;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}
+header .triangle {
+  top: 15rem;
   height: 55%;
   stroke-width: 0;
 }
@@ -496,7 +506,7 @@ header .floating-mountains {
 .page-default .heading h2:last-child {
   padding-left: 8%;
 }
-.page-default .big-yellow-btn {
+.page-default .yellow-btn-container {
   position: absolute;
   bottom: 15vh;
   left: 20%;
@@ -714,9 +724,14 @@ header .floating-mountains {
   text-align: center;
   overflow: hidden;
 }
+.project-panel:hover .project-image {
+  filter: brightnesS(1);
+  transform: scale(1.05);
+}
 
 .project-image {
   filter: brightness(0.3);
+  transition: all 0.5s;
 }
 
 .project-details {
@@ -725,7 +740,7 @@ header .floating-mountains {
   z-index: 5;
 }
 .project-details h1 {
-  font-size: 50vh;
+  font-size: 45vh;
   background: linear-gradient(white, #a4a4a4);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -735,9 +750,12 @@ header .floating-mountains {
 .project-details h2 {
   font-size: 2vw;
   height: 10vh;
+  text-shadow: 0 5rem 5rem black;
 }
 .project-details p {
   color: white;
+  font-size: 16rem;
+  text-shadow: 0 2rem 2rem black;
 }
 
 .border {

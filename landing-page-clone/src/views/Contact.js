@@ -2,20 +2,54 @@ import { ReactComponent as Triangle } from "../assets/triangle.svg";
 import { ReactComponent as FloatingMountains } from "../assets/floatMountains.svg";
 import YellowButton from "../components/YellowButton";
 import Form from "../components/Form";
+import { motion } from "framer-motion";
+import Animations from "../animation";
 
 function Contact() {
    return (
       <section id="contact-page" className="page-view">
          <div className="main-container contact">
             <header className="middle-piece">
-               <h1>Contact Us</h1>
-               <h1>Contact Us</h1>
-               <FloatingMountains className="floating-mountains" />
-               <Triangle className="triangle" />
+               <motion.div
+                  className="container"
+                  variants={Animations.movement}
+                  initial="initialY"
+                  custom={20}
+                  animate="endingXY"
+                  transition={{ duration: 0.75, delay: 0.5 }}
+               >
+                  <h1>Contact Us</h1>
+                  <h1>Contact Us</h1>
+               </motion.div>
+               <motion.div
+                  className="floating-mountains"
+                  variants={Animations.movement}
+                  initial="initialY"
+                  custom={20}
+                  animate="endingXY"
+                  transition={{ duration: 0.75 }}
+               >
+                  <FloatingMountains />
+               </motion.div>
+               <motion.div
+                  className="container"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.75, delay: 1 }}
+               >
+                  <Triangle className="triangle" />
+               </motion.div>
             </header>
 
             <div className="contact-content">
-               <div className="contact-details">
+               <motion.div
+                  className="contact-details"
+                  variants={Animations.movement}
+                  initial="initialX"
+                  custom={20}
+                  animate="endingXY"
+                  transition={{ duration: 0.75, delay: 1 }}
+               >
                   <h2>Conquer new peaks</h2>
                   <h2>Of Business</h2>
                   <h5 className="description">
@@ -42,10 +76,17 @@ function Contact() {
                         <p className="contact-info">123 Clone Street</p>
                      </div>
                   </div>
-               </div>
-               <div className="contact-details">
+               </motion.div>
+               <motion.div
+                  className="contact-details"
+                  variants={Animations.movement}
+                  initial="initialX"
+                  custom={-20}
+                  animate="endingXY"
+                  transition={{ duration: 0.75, delay: 1 }}
+               >
                   <Form />
-               </div>
+               </motion.div>
             </div>
          </div>
       </section>

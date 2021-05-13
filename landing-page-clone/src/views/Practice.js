@@ -1,6 +1,8 @@
 import PageLayout from "../components/PageLayout";
 import ListItem from "../components/ListItem";
 import SlidingText from "../components/SlidingText";
+import { motion } from "framer-motion";
+import Animations from "../animation";
 
 function Practice() {
    const description =
@@ -20,7 +22,14 @@ function Practice() {
                description={description}
                btnText="Start Project"
             />
-            <div className="page-right">
+            <motion.div
+               className="page-right"
+               variants={Animations.movement}
+               initial="initialX"
+               custom={-20}
+               animate="endingXY"
+               transition={{ duration: 0.75, delay: 0.5 }}
+            >
                <div className="list-container">
                   <ul className="left-column">
                      {leftList.map((service, index) => {
@@ -41,7 +50,7 @@ function Practice() {
                      })}
                   </ul>
                </div>
-            </div>
+            </motion.div>
          </div>
       </section>
    );

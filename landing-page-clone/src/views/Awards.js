@@ -1,4 +1,6 @@
 import PageLayout from "../components/PageLayout";
+import { motion } from "framer-motion";
+import Animations from "../animation";
 
 function Awards() {
    const description =
@@ -14,7 +16,14 @@ function Awards() {
                btnText="Start Project"
                display="dark"
             />
-            <ul className="awards-list-container">
+            <motion.ul
+               className="awards-list-container"
+               variants={Animations.movement}
+               initial="initialX"
+               custom={-20}
+               animate="endingXY"
+               transition={{ duration: 0.75, delay: 0.5 }}
+            >
                <li className="award">
                   <h1>
                      A<span>www</span>ards
@@ -46,7 +55,7 @@ function Awards() {
                   </h1>
                   <p className="description">Site of the day x 0</p>
                </li>
-            </ul>
+            </motion.ul>
          </div>
       </section>
    );
