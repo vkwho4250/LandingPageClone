@@ -648,15 +648,12 @@ header .floating-mountains {
   width: 25rem;
   overflow: hidden;
 }
-.slide-btn:hover .text-container {
-  transform: translateX(-25rem);
-}
 .slide-btn .text-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-  transition: all 1s;
+  width: fit-content;
 }
 .slide-btn .text-container .left {
   transform: scale(-1);
@@ -673,7 +670,7 @@ header .floating-mountains {
   writing-mode: vertical-rl;
   order: 2;
 }
-.slide-btn .yellow {
+.slide-btn h3.yellow {
   color: #ebd301;
 }
 .slide-btn .yellow.left {
@@ -760,4 +757,60 @@ header .floating-mountains {
 
 .border {
   border-right: 1rem solid black;
+}
+
+.page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.page-num-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+}
+.page-num-container h4 {
+  font-size: 16rem;
+  font-weight: 300;
+  opacity: 1;
+  color: black;
+}
+
+.circle {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: black;
+  box-shadow: 0 2rem 2rem 2rem rgba(0, 0, 0, 0.3);
+  margin: 8rem 0;
+  transition: all 0.5s;
+}
+.circle.yellow {
+  background: #ebd301;
+}
+
+.line {
+  height: 25rem;
+  border-right: 1rem solid black;
+}
+
+#page-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#menu-btn {
+  border: 1rem solid red;
+  transform: rotate(-90deg);
+  height: 30rem;
+}
+#menu-btn h1 {
+  height: 30rem;
+  letter-spacing: 2rem;
 }

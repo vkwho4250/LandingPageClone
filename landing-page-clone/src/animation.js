@@ -10,6 +10,19 @@ const textSlide = {
    active: { y: 0, opacity: 1 },
 };
 
-const Animations = { movement, textSlide };
+const collapse = {
+   close: {
+      opacity: 0,
+      height: 0,
+      transition: { duration: 0.5 },
+   },
+   open: {
+      opacity: 1,
+      height: 30,
+      transition: { duration: 0.5 },
+   },
+};
+
+const Animations = { movement, textSlide, collapse };
 
 export default Animations;

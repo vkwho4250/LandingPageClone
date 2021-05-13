@@ -1,6 +1,7 @@
 import SlideButton from "../components/SlideButton";
+import PageNav from "../components/PageNav";
 
-function RightSidebar() {
+function RightSidebar({ changeItemHovered, itemHovered }) {
    const languages = ["en", "ua", "ru"];
 
    return (
@@ -12,14 +13,23 @@ function RightSidebar() {
                      <SlideButton
                         text={language}
                         weight={index !== 0 ? "thin" : "default"}
+                        changeItemHovered={changeItemHovered}
+                        itemHovered={itemHovered}
                      />
                   </li>
                );
             })}
          </ul>
-         <div>NAVIGATION</div>
+         <PageNav
+            changeItemHovered={changeItemHovered}
+            itemHovered={itemHovered}
+         />
          <div className="start-project-container">
-            <SlideButton text="Start Project" />
+            <SlideButton
+               text="Start Project"
+               changeItemHovered={changeItemHovered}
+               itemHovered={itemHovered}
+            />
          </div>
       </div>
    );

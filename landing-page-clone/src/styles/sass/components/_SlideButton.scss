@@ -6,15 +6,9 @@ $button-size: 25rem;
    width: $button-size;
    overflow: hidden;
 
-   &:hover {
-      .text-container {
-         transform: translateX(-$button-size); //!remove later
-      }
-   }
-
    .text-container {
       @include flex-container(flex-start, center);
-      transition: all 1s; // !remove later
+      width: fit-content;
 
       .left {
          transform: scale(-1);
@@ -30,10 +24,10 @@ $button-size: 25rem;
       font-size: 22rem;
       writing-mode: vertical-rl;
       order: 2;
-   }
 
-   .yellow {
-      color: $siteYellow;
+      &.yellow {
+         color: $siteYellow;
+      }
    }
 
    .yellow.left {

@@ -1,15 +1,32 @@
+import { motion } from "framer-motion";
+
 function SlideButton({
    text,
    direction = "right",
-   action,
    weight = "default",
+   changeItemHovered,
+   itemHovered,
 }) {
    return (
-      <button className="slide-btn">
-         <div className={`text-container ${direction}`}>
+      <button
+         id={`${text}-btn`}
+         className="slide-btn"
+         onMouseEnter={changeItemHovered}
+         onMouseLeave={changeItemHovered}
+      >
+         <motion.div
+            className={`text-container ${direction}`}
+            initial={{ x: direction === "right" ? 0 : -25 }}
+            animate={
+               itemHovered === `${text}-btn`
+                  ? { x: direction === "right" ? -25 : 0 }
+                  : ""
+            }
+            transition={{ duration: 1, type: "spring", bounce: 0.5 }}
+         >
             <h3 className={`${weight} ${direction}`}>{text}</h3>
             <h3 className={`yellow ${weight} ${direction}`}>{text}</h3>
-         </div>
+         </motion.div>
       </button>
    );
 }

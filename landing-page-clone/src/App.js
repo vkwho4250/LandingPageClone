@@ -9,11 +9,30 @@ import Contact from "./views/Contact";
 import RightSidebar from "./components/RightSidebar";
 import LeftSidebar from "./components/LeftSidebar";
 
+import { useState } from "react";
+
 function App() {
+   const [itemHovered, setItemHovered] = useState("");
+
+   function changeItemHovered(e) {
+      if (e.type === "mouseleave") {
+         setItemHovered("");
+      } else {
+         setItemHovered(e.currentTarget.id);
+         console.log(e.currentTarget.id);
+      }
+   }
+
    return (
       <div className="App">
-         <LeftSidebar />
-         <RightSidebar />
+         <LeftSidebar
+            changeItemHovered={changeItemHovered}
+            itemHovered={itemHovered}
+         />
+         <RightSidebar
+            changeItemHovered={changeItemHovered}
+            itemHovered={itemHovered}
+         />
          <Home />
          <Practice />
          <Awards />
