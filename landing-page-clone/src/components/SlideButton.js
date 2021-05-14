@@ -25,7 +25,7 @@ function SlideButton({
             transition={{ duration: 1, type: "spring", bounce: 0.5 }}
          >
             <h3 className={`${weight} ${direction}`}>{text}</h3>
-            <h3 className={`yellow ${weight} ${direction}`}>{text}</h3>
+            <h3 className={`secondary-color ${weight} ${direction}`}>{text}</h3>
          </motion.div>
       </button>
    );

@@ -134,7 +134,7 @@ h6 {
 
 a {
   position: relative;
-  z-index: 99;
+  z-index: 50;
   text-decoration: none;
   color: #ebd301;
 }
@@ -670,10 +670,10 @@ header .floating-mountains {
   writing-mode: vertical-rl;
   order: 2;
 }
-.slide-btn h3.yellow {
+.slide-btn h3.secondary-color {
   color: #ebd301;
 }
-.slide-btn .yellow.left {
+.slide-btn .secondary-color.left {
   order: 1;
 }
 .slide-btn .thin {
@@ -806,11 +806,120 @@ header .floating-mountains {
 }
 
 #menu-btn {
-  border: 1rem solid red;
-  transform: rotate(-90deg);
-  height: 30rem;
+  width: 40rem;
+  transform: scale(-1);
+  overflow: hidden;
+  height: 200rem;
 }
 #menu-btn h1 {
-  height: 30rem;
-  letter-spacing: 2rem;
+  writing-mode: vertical-lr;
+  margin: 2rem 0;
+}
+#menu-btn div {
+  position: absolute;
+  bottom: 50%;
+}
+
+.yellow-menu h1 {
+  color: #ebd301;
+}
+
+#menu {
+  position: absolute;
+  z-index: 99;
+  background: #ebd301;
+  width: 100vw;
+  height: 100vh;
+}
+#menu #menu-btn,
+#menu #page-navigation {
+  display: none;
+}
+#menu .secondary-color {
+  color: white;
+}
+#menu .page-right {
+  border: 1rem solid red;
+  padding: 0 0 12vh 5vw;
+}
+
+.menu-page-nav-container {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 50vw;
+  border: 1rem solid red;
+}
+
+.close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  width: 5vw;
+  height: 100vh;
+}
+
+.x-box {
+  z-index: 99;
+  width: 100%;
+  height: 2.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+.x-box:hover .x-line {
+  transform: rotate(0);
+  background: white;
+}
+
+.x-line {
+  position: absolute;
+  width: 50%;
+  height: 3rem;
+  margin: 5rem;
+  background: black;
+  transition: all 0.3s ease-in;
+}
+.x-line:first-child {
+  transform: rotate(45deg);
+}
+.x-line:last-child {
+  transform: rotate(-45deg);
+}
+
+.menu-page-nav {
+  position: relative;
+  width: 25vw;
+  margin: 3vh 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+.menu-page-nav h2 {
+  font-size: 4vw;
+  text-align: right;
+  width: 17.5vw;
+  line-height: 70%;
+}
+.menu-page-nav h3 {
+  font-size: 2vw;
+  writing-mode: vertical-lr;
+  transform: scale(-1);
+  font-weight: 400;
+  cursor: pointer;
+  margin-left: 5vw;
+}
+
+.bottom-line {
+  position: absolute;
+  top: 0;
+  left: 13.75vw;
+  border-bottom: 1rem solid black;
+  height: 100%;
+  width: 3.75vw;
 }

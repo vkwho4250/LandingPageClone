@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import PageNavBtn from "./PageNavBtn";
 
 function PageNav({ changeItemHovered, itemHovered }) {

@@ -25,12 +25,12 @@ $button-size: 25rem;
       writing-mode: vertical-rl;
       order: 2;
 
-      &.yellow {
+      &.secondary-color {
          color: $siteYellow;
       }
    }
 
-   .yellow.left {
+   .secondary-color.left {
       order: 1;
    }
 

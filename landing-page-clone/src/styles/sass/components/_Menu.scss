@@ -1,0 +1,31 @@
+@use "../global" as *;
+
+#menu {
+   position: absolute;
+   z-index: 99;
+   background: $siteYellow;
+   width: 100vw;
+   height: 100vh;
+
+   #menu-btn,
+   #page-navigation {
+      display: none;
+   }
+
+   .secondary-color {
+      color: white;
+   }
+
+   .page-right {
+      border: 1rem solid red;
+      padding: 0 0 12vh 5vw;
+   }
+}
+
+.menu-page-nav-container {
+   position: absolute;
+   right: 0;
+   height: 100%;
+   width: 50vw;
+   border: 1rem solid red;
+}

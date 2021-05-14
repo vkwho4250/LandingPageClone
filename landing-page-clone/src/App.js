@@ -1,4 +1,5 @@
 import "./styles/css/styles.css";
+
 import Home from "./views/Home";
 import Practice from "./views/Practice";
 import Awards from "./views/Awards";
@@ -8,6 +9,7 @@ import About from "./views/About";
 import Contact from "./views/Contact";
 import RightSidebar from "./components/RightSidebar";
 import LeftSidebar from "./components/LeftSidebar";
+import Menu from "./components/Menu";
 
 import { useState } from "react";
 
@@ -19,7 +21,6 @@ function App() {
          setItemHovered("");
       } else {
          setItemHovered(e.currentTarget.id);
-         console.log(e.currentTarget.id);
       }
    }
 
@@ -30,6 +31,10 @@ function App() {
             itemHovered={itemHovered}
          />
          <RightSidebar
+            changeItemHovered={changeItemHovered}
+            itemHovered={itemHovered}
+         />
+         <Menu
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
          />

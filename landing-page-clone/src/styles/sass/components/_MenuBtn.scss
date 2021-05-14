@@ -1,12 +1,25 @@
-$menu-height: 30rem;
+@use "../global" as *;
+$menu-height: 40rem;
 
 #menu-btn {
-   border: 1rem solid red;
-   transform: rotate(-90deg);
-   height: $menu-height;
+   width: $menu-height;
+   transform: scale(-1);
+   overflow: hidden;
+   height: 200rem;
 
    h1 {
-      height: $menu-height;
-      letter-spacing: 2rem;
+      writing-mode: vertical-lr;
+      margin: 2rem 0;
+   }
+
+   div {
+      position: absolute;
+      bottom: 50%;
+   }
+}
+
+.yellow-menu {
+   h1 {
+      color: $siteYellow;
    }
 }
