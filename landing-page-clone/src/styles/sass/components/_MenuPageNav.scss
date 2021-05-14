@@ -11,17 +11,16 @@ $list-width: 25vw;
    h2 {
       font-size: 4vw;
       text-align: right;
-      width: $list-width * 0.7;
+      width: $list-width;
       line-height: 70%;
    }
 
    h3 {
       font-size: 2vw;
       writing-mode: vertical-lr;
-      transform: scale(-1);
       font-weight: 400;
       cursor: pointer;
-      margin-left: $list-width * 0.2;
+      margin-left: 20%;
    }
 }
 
@@ -31,5 +30,4 @@ $list-width: 25vw;
    left: $list-width * (0.7 - 0.15);
    border-bottom: 1rem solid black;
    height: 100%;
-   width: $list-width * 0.15;
 }

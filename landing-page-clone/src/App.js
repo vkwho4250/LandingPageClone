@@ -14,13 +14,19 @@ import Menu from "./components/Menu";
 import { useState } from "react";
 
 function App() {
+   const [menuOpened, setMenuOpened] = useState(false);
    const [itemHovered, setItemHovered] = useState("");
+
+   function changeMenuOpened() {
+      setMenuOpened(!menuOpened);
+   }
 
    function changeItemHovered(e) {
       if (e.type === "mouseleave") {
          setItemHovered("");
       } else {
          setItemHovered(e.currentTarget.id);
+         console.log(e.currentTarget.id);
       }
    }
 
@@ -29,6 +35,7 @@ function App() {
          <LeftSidebar
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
+            changeMenuOpened={changeMenuOpened}
          />
          <RightSidebar
             changeItemHovered={changeItemHovered}
@@ -37,6 +44,8 @@ function App() {
          <Menu
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
+            changeMenuOpened={changeMenuOpened}
+            menuOpened={menuOpened}
          />
          <Home />
          <Practice />

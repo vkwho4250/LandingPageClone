@@ -1,6 +1,6 @@
-function CloseBtn() {
+function CloseBtn({ changeMenuOpened }) {
    return (
-      <div className="close-btn">
+      <div onClick={changeMenuOpened} className="close-btn">
          <div className="x-box">
             <div className="x-line"></div>
             <div className="x-line"></div>

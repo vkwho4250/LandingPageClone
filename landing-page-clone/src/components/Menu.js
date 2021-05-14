@@ -2,8 +2,14 @@ import RightSidebar from "./RightSidebar";
 import LeftSidebar from "./LeftSidebar";
 import CloseBtn from "./CloseBtn";
 import MenuPageNav from "./MenuPageNav";
+import { motion } from "framer-motion";
 
-function Menu({ changeItemHovered, itemHovered }) {
+function Menu({
+   changeItemHovered,
+   itemHovered,
+   changeMenuOpened,
+   menuOpened,
+}) {
    const pages = [
       {
          link: "practice",
@@ -32,7 +38,11 @@ function Menu({ changeItemHovered, itemHovered }) {
    ];
 
    return (
-      <div id="menu">
+      <motion.div
+         animate={menuOpened ? { x: 0, y: 0 } : { x: -2000, y: 0 }}
+         transition={{ duration: 1, type: "spring", bounce: 0.3 }}
+         id="menu"
+      >
          <RightSidebar
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
@@ -41,17 +51,22 @@ function Menu({ changeItemHovered, itemHovered }) {
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
          />
-         <CloseBtn />
+         <CloseBtn changeMenuOpened={changeMenuOpened} />
          <ul className="page-right">
             {pages.map((page, index) => {
                return (
                   <li key={index}>
-                     <MenuPageNav page={page} index={index} />
+                     <MenuPageNav
+                        page={page}
+                        index={index}
+                        changeItemHovered={changeItemHovered}
+                        itemHovered={itemHovered}
+                     />
                   </li>
                );
             })}
          </ul>
-      </div>
+      </motion.div>
    );
 }
 

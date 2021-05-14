@@ -165,7 +165,7 @@ button {
   background: none;
   outline: none;
   cursor: pointer;
-  z-index: 99;
+  z-index: 50;
 }
 
 .pulse {
@@ -785,8 +785,8 @@ header .floating-mountains {
   height: 8rem;
   border-radius: 50%;
   background: black;
-  box-shadow: 0 2rem 2rem 2rem rgba(0, 0, 0, 0.3);
-  margin: 8rem 0;
+  box-shadow: 0 1rem 2rem 2rem rgba(0, 0, 0, 0.3);
+  margin: 6rem 0;
   transition: all 0.5s;
 }
 .circle.yellow {
@@ -825,7 +825,7 @@ header .floating-mountains {
 }
 
 #menu {
-  position: absolute;
+  position: fixed;
   z-index: 99;
   background: #ebd301;
   width: 100vw;
@@ -839,16 +839,7 @@ header .floating-mountains {
   color: white;
 }
 #menu .page-right {
-  border: 1rem solid red;
-  padding: 0 0 12vh 5vw;
-}
-
-.menu-page-nav-container {
-  position: absolute;
-  right: 0;
-  height: 100%;
-  width: 50vw;
-  border: 1rem solid red;
+  padding: 0 0 10vh 5vw;
 }
 
 .close-btn {
@@ -903,16 +894,15 @@ header .floating-mountains {
 .menu-page-nav h2 {
   font-size: 4vw;
   text-align: right;
-  width: 17.5vw;
+  width: 25vw;
   line-height: 70%;
 }
 .menu-page-nav h3 {
   font-size: 2vw;
   writing-mode: vertical-lr;
-  transform: scale(-1);
   font-weight: 400;
   cursor: pointer;
-  margin-left: 5vw;
+  margin-left: 20%;
 }
 
 .bottom-line {
@@ -921,5 +911,4 @@ header .floating-mountains {
   left: 13.75vw;
   border-bottom: 1rem solid black;
   height: 100%;
-  width: 3.75vw;
 }

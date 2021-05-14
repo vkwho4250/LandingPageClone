@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
-function MenuBtn() {
+function MenuBtn({ changeMenuOpened }) {
    const menuText = ["M", "E", "N", "U"];
 
    return (
-      <button id="menu-btn">
+      <button onClick={changeMenuOpened} id="menu-btn">
          <div>
             {menuText.map((letter, index) => {
                return (
