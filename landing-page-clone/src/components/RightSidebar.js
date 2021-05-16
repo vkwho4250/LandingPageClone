@@ -1,7 +1,7 @@
 import SlideButton from "../components/SlideButton";
 import PageNav from "../components/PageNav";
 
-function RightSidebar({ changeItemHovered, itemHovered }) {
+function RightSidebar({ changeItemHovered, itemHovered, darkMode }) {
    const languages = ["en", "ua", "ru"];
 
    return (
@@ -15,6 +15,7 @@ function RightSidebar({ changeItemHovered, itemHovered }) {
                         weight={index !== 0 ? "thin" : "default"}
                         changeItemHovered={changeItemHovered}
                         itemHovered={itemHovered}
+                        darkMode={darkMode}
                      />
                   </li>
                );
@@ -23,12 +24,14 @@ function RightSidebar({ changeItemHovered, itemHovered }) {
          <PageNav
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
+            darkMode={darkMode}
          />
          <div className="start-project-container">
             <SlideButton
                text="Start Project"
                changeItemHovered={changeItemHovered}
                itemHovered={itemHovered}
+               darkMode={darkMode}
             />
          </div>
       </div>

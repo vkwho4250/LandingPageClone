@@ -6,7 +6,7 @@ function LeftSidebar({
    changeItemHovered,
    itemHovered,
    changeMenuOpened,
-   menuOpened,
+   darkMode,
 }) {
    const socials = ["FI", "FB", "IN", "BE", "DR"];
 
@@ -24,6 +24,7 @@ function LeftSidebar({
                         direction="left"
                         changeItemHovered={changeItemHovered}
                         itemHovered={itemHovered}
+                        darkMode={darkMode}
                      />
                   </li>
                );

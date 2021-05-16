@@ -2,6 +2,7 @@
 
 #menu {
    position: fixed;
+   left: -2000rem;
    z-index: 99;
    background: $siteYellow;
    width: 100vw;
@@ -18,5 +19,9 @@
 
    .page-right {
       padding: 0 0 10vh 5vw;
+   }
+
+   .sidebar {
+      position: absolute;
    }
 }

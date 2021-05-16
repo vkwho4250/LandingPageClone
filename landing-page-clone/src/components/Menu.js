@@ -39,7 +39,7 @@ function Menu({
 
    return (
       <motion.div
-         animate={menuOpened ? { x: 0, y: 0 } : { x: -2000, y: 0 }}
+         animate={menuOpened ? { x: 2000, y: 0 } : { x: 0, y: 0 }}
          transition={{ duration: 1, type: "spring", bounce: 0.3 }}
          id="menu"
       >

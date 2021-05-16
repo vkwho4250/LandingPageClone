@@ -10,11 +10,12 @@ import Contact from "./views/Contact";
 import RightSidebar from "./components/RightSidebar";
 import LeftSidebar from "./components/LeftSidebar";
 import Menu from "./components/Menu";
-
+import Request from "./components/Request";
 import { useState } from "react";
 
 function App() {
    const [menuOpened, setMenuOpened] = useState(false);
+   const [darkMode, setDarkMode] = useState(false);
    const [itemHovered, setItemHovered] = useState("");
 
    function changeMenuOpened() {
@@ -36,10 +37,12 @@ function App() {
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
             changeMenuOpened={changeMenuOpened}
+            darkMode={darkMode}
          />
          <RightSidebar
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
+            darkMode={darkMode}
          />
          <Menu
             changeItemHovered={changeItemHovered}
@@ -47,6 +50,7 @@ function App() {
             changeMenuOpened={changeMenuOpened}
             menuOpened={menuOpened}
          />
+         <Request changeMenuOpened={changeMenuOpened} />
          <Home />
          <Practice />
          <Awards />
