@@ -21,21 +21,21 @@
   box-shadow: 0 0 30rem 10rem rgba(0, 0, 0, 0.2);
 }
 
-.paragraph-container {
+.request-form, .paragraph-container {
   /* Track */
   /* Handle */
 }
-.paragraph-container::-webkit-scrollbar {
+.request-form::-webkit-scrollbar, .paragraph-container::-webkit-scrollbar {
   width: 14rem;
 }
-.paragraph-container::-webkit-scrollbar-track {
+.request-form::-webkit-scrollbar-track, .paragraph-container::-webkit-scrollbar-track {
   background: #a4a4a4;
   border: 6rem solid white;
 }
-.paragraph-container::-webkit-scrollbar-track:hover {
+.request-form::-webkit-scrollbar-track:hover, .paragraph-container::-webkit-scrollbar-track:hover {
   background: #717171;
 }
-.paragraph-container::-webkit-scrollbar-thumb {
+.request-form::-webkit-scrollbar-thumb, .paragraph-container::-webkit-scrollbar-thumb {
   background: #ebd301;
   border: 10rem solid #ebd301;
 }
@@ -90,8 +90,33 @@ body::-webkit-scrollbar {
   padding: 5rem 0;
 }
 
+.grid-container {
+  border: 1rem solid red;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+  padding: 0 5vw;
+}
+
 .dark-mode {
   color: white;
+}
+
+.pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 2rem solid #ebd301;
+  transition: all 0.8s;
+}
+
+.no-display {
+  display: none;
 }
 
 * {
@@ -170,16 +195,6 @@ button {
   outline: none;
   cursor: pointer;
   z-index: 50;
-}
-
-.pulse {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border: 2rem solid #ebd301;
-  transition: all 0.8s;
 }
 
 .home {
@@ -353,22 +368,8 @@ header .floating-mountains {
   transform: scale(1.1);
 }
 
-.contact-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-direction: row;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 70%;
-  padding: 0 5vw;
-}
-
 .contact-details {
   position: relative;
-  height: 80%;
-  width: 50%;
 }
 .contact-details h2 {
   font-size: 2vw;
@@ -376,8 +377,14 @@ header .floating-mountains {
 }
 .contact-details h5 {
   font-size: calc(max(0.9vw, 16rem));
-  width: 40%;
+  width: 60%;
   margin: 4vh 0 3vh;
+}
+.contact-details:last-child {
+  padding: 2vh 0 0 7vw;
+}
+.contact-details:last-child .big-yellow-btn {
+  width: 45%;
 }
 
 .contact-method-container {
@@ -385,7 +392,6 @@ header .floating-mountains {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  width: 80%;
   margin: 3vh 0;
 }
 
@@ -685,17 +691,18 @@ header .floating-mountains {
 }
 
 #contact-form {
-  padding-top: 3vh;
-  width: 70%;
+  padding-top: 3%;
   position: absolute;
   right: 0;
+  top: 0;
+  width: 45%;
 }
 #contact-form label,
 #contact-form input,
 #contact-form textarea {
   width: 100%;
   padding: 5rem;
-  font-size: 0.9vw;
+  font-size: 16rem;
 }
 #contact-form input,
 #contact-form textarea {
@@ -709,7 +716,6 @@ header .floating-mountains {
   border-bottom: 2rem solid #ebd301;
 }
 #contact-form .big-yellow-btn {
-  width: 55%;
   position: absolute;
   right: 0;
   margin: 2vh 1vw 0 0;
@@ -941,10 +947,25 @@ header .floating-mountains {
   height: 1rem;
   background: white;
 }
-#request-page .big-yellow-btn {
+#request-page #contact-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#request-page #contact-form > div {
+  width: 65%;
+}
+#request-page #contact-form .big-yellow-btn {
   background: none;
   color: #ebd301;
   box-shadow: inset 0 0 0 2rem rgba(235, 211, 1, 0.7);
+  position: relative;
+  width: 40%;
+}
+#request-page textarea,
+#request-page input {
+  border-bottom: 2rem solid rgba(255, 255, 255, 0.7);
 }
 
 .request-form {
@@ -952,7 +973,12 @@ header .floating-mountains {
   width: 90vw;
   height: 90vh;
   background: #1e1e1e;
-  border: 1rem solid yellow;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.request-form::-webkit-scrollbar-track {
+  background: #a4a4a4;
+  border: 6rem solid #1e1e1e;
 }
 
 .request-call {
@@ -971,14 +997,15 @@ header .floating-mountains {
 .request-call h1 {
   font-size: calc(max(2vw, 30rem));
   color: #ebd301;
-  margin: 5vh 0;
+  margin: 1.5% 0;
 }
 
 .form-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
+  position: relative;
+  padding: 0 10%;
+}
+.form-container #check-form {
+  width: 700rem;
 }
 
 .request-number {
@@ -1017,5 +1044,43 @@ header .floating-mountains {
 }
 
 #request-check-form {
-  border: 1rem solid red;
+  margin-top: 30rem;
+}
+#request-check-form h1 {
+  color: #ebd301;
+}
+
+.option-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+.option-column {
+  width: 50%;
+}
+
+.option-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: row;
+  margin-top: 15rem;
+  cursor: pointer;
+}
+.option-item:hover p {
+  margin-left: 15rem;
+}
+.option-item p {
+  margin-left: 10rem;
+  color: white;
+  font-size: 18rem;
+  transition: all 0.4s;
+}
+
+.checkbox {
+  width: 20rem;
+  height: 20rem;
+  border: 2rem solid white;
 }

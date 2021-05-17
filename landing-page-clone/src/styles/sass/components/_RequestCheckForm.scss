@@ -1,3 +1,17 @@
+@use "../global" as *;
+
 #request-check-form {
-   border: 1rem solid red;
+   margin-top: 30rem;
+
+   h1 {
+      color: $siteYellow;
+   }
+}
+
+.option-container {
+   @include flex-container(flex-start, flex-end);
+}
+
+.option-column {
+   width: 50%;
 }

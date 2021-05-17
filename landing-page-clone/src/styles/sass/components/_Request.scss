@@ -19,10 +19,25 @@
       }
    }
 
-   .big-yellow-btn {
-      background: none;
-      color: $siteYellow;
-      box-shadow: inset 0 0 0 2rem rgba($siteYellow, 0.7);
+   #contact-form {
+      @include flex-container(center, center, column);
+
+      & > div {
+         width: 65%;
+      }
+
+      .big-yellow-btn {
+         background: none;
+         color: $siteYellow;
+         box-shadow: inset 0 0 0 2rem rgba($siteYellow, 0.7);
+         position: relative;
+         width: 40%;
+      }
+   }
+
+   textarea,
+   input {
+      border-bottom: 2rem solid rgba(white, 0.7);
    }
 }
 
@@ -31,11 +46,19 @@
    width: 90vw;
    height: 90vh;
    background: $medium-gray;
-   border: 1rem solid yellow;
+   overflow-y: scroll;
+   overflow-x: hidden;
+   @extend %scrollbar;
+
+   &::-webkit-scrollbar-track {
+      background: $light-gray;
+      border: 6rem solid $medium-gray;
+   }
 }
 
 .request-call {
    width: 100%;
+
    @include flex-container(center, center, column);
 
    & > div {
@@ -45,10 +68,15 @@
    h1 {
       font-size: calc(max(2vw, 30rem));
       color: $siteYellow;
-      margin: 5vh 0;
+      margin: 1.5% 0;
    }
 }
 
 .form-container {
-   @include flex-container(space-between, center);
+   position: relative;
+   padding: 0 10%;
+
+   #check-form {
+      width: 700rem;
+   }
 }

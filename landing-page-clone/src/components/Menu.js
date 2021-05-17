@@ -51,7 +51,7 @@ function Menu({
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
          />
-         <CloseBtn changeMenuOpened={changeMenuOpened} />
+         <CloseBtn purpose={changeMenuOpened} />
          <ul className="page-right">
             {pages.map((page, index) => {
                return (

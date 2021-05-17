@@ -15,11 +15,16 @@ import { useState } from "react";
 
 function App() {
    const [menuOpened, setMenuOpened] = useState(false);
+   const [requestOpened, setRequestOpened] = useState(false);
    const [darkMode, setDarkMode] = useState(false);
    const [itemHovered, setItemHovered] = useState("");
 
    function changeMenuOpened() {
       setMenuOpened(!menuOpened);
+   }
+
+   function changeRequestOpened() {
+      setRequestOpened(!requestOpened);
    }
 
    function changeItemHovered(e) {
@@ -40,6 +45,7 @@ function App() {
             darkMode={darkMode}
          />
          <RightSidebar
+            changeRequestOpened={changeRequestOpened}
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
             darkMode={darkMode}
@@ -50,7 +56,10 @@ function App() {
             changeMenuOpened={changeMenuOpened}
             menuOpened={menuOpened}
          />
-         <Request changeMenuOpened={changeMenuOpened} />
+         <Request
+            changeRequestOpened={changeRequestOpened}
+            requestOpened={requestOpened}
+         />
          <Home />
          <Practice />
          <Awards />

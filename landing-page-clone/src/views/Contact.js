@@ -41,7 +41,7 @@ function Contact() {
                </motion.div>
             </header>
 
-            <div className="contact-content">
+            <div className="grid-container">
                <motion.div
                   className="contact-details"
                   variants={Animations.movement}
