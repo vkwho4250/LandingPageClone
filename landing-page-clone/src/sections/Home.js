@@ -1,5 +1,5 @@
-import { ReactComponent as Triangle } from "../../../assets/triangle.svg";
-import Badge from "../../../components/Badge";
+import { ReactComponent as Triangle } from "../assets/triangle.svg";
+import Badge from "../components/Badge";
 
 function Home() {
    const panels = [...Array(5).keys()];

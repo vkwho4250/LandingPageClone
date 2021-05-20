@@ -9,7 +9,7 @@
 }
 
 .option-container {
-   @include flex-container(flex-start, flex-end);
+   @include flex-container(flex-start, flex-start);
 }
 
 .option-column {

@@ -1,69 +1,76 @@
 import "./styles/css/styles.css";
-import Main from "./views/Main/Main";
-import Submission from "./views/Submission";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import { useState } from "react";
 
+import Home from "./sections/Home";
+import Practice from "./sections/Practice";
+import Awards from "./sections/Awards";
+import Projects from "./sections/Projects";
+import Services from "./sections/Services";
+import About from "./sections/About";
+import Contact from "./sections/Contact";
+import RightSidebar from "./components/RightSidebar";
+import LeftSidebar from "./components/LeftSidebar";
+import Menu from "./components/Menu";
+import Request from "./components/Request";
+
 function App() {
-   // const [menuOpened, setMenuOpened] = useState(false);
-   // const [requestOpened, setRequestOpened] = useState(false);
-   // const [darkMode, setDarkMode] = useState(false);
-   const [requestDetails, setRequestDetails] = useState([]);
-   const [contactDetails, setContactDetails] = useState("");
+   const [menuOpened, setMenuOpened] = useState(false);
+   const [requestOpened, setRequestOpened] = useState(false);
+   const [darkMode, setDarkMode] = useState(false);
+   const [currentSection, setCurrentSection] = useState("home-page");
 
-   function updateContactDetails(details) {
-      setContactDetails(details);
+   function changeCurrentSection(id) {
+      setCurrentSection(id);
    }
 
-   function updateRequestDetails(item) {
-      if (requestDetails.includes(item)) {
-         setRequestDetails(requestDetails.filter((detail) => detail !== item));
-      } else {
-         setRequestDetails([...requestDetails, item]);
-      }
+   function changeMenuOpened() {
+      setMenuOpened(!menuOpened);
    }
 
-   // function changeMenuOpened() {
-   //    setMenuOpened(!menuOpened);
-   // }
+   function changeRequestOpened() {
+      setRequestOpened(!requestOpened);
+   }
 
-   // function changeRequestOpened() {
-   //    setRequestOpened(!requestOpened);
-   // }
+   function changeDarkMode(action) {
+      setDarkMode(action);
+   }
 
    return (
-      <Router>
-         <Switch>
-            <Route path="/submission">
-               <Submission />
-            </Route>
-            <Route path="/">
-               <Main
-                  updateRequestDetails={updateRequestDetails}
-                  updateContactDetails={updateContactDetails}
-               />
-            </Route>
-         </Switch>
-         {/* <LeftSidebar changeMenuOpened={changeMenuOpened} darkMode={darkMode} />
+      <div id="app">
+         <LeftSidebar changeMenuOpened={changeMenuOpened} darkMode={darkMode} />
          <RightSidebar
             changeRequestOpened={changeRequestOpened}
             darkMode={darkMode}
+            currentSection={currentSection}
+            changeCurrentSection={changeCurrentSection}
          />
-         <Menu changeMenuOpened={changeMenuOpened} menuOpened={menuOpened} />
+         <Menu
+            changeMenuOpened={changeMenuOpened}
+            menuOpened={menuOpened}
+            changeRequestOpened={changeRequestOpened}
+            changeCurrentSection={changeCurrentSection}
+         />
          <Request
             changeRequestOpened={changeRequestOpened}
             requestOpened={requestOpened}
-            updateRequestDetails={updateRequestDetails}
          />
          <Home />
-         <Practice />
-         <Awards />
-         <Projects />
-         <Services />
-         <About />
-         <Contact updateContactDetails={updateContactDetails} /> */}
-      </Router>
+         <Practice
+            changeRequestOpened={changeRequestOpened}
+            changeDarkMode={changeDarkMode}
+         />
+         <Awards
+            changeRequestOpened={changeRequestOpened}
+            changeDarkMode={changeDarkMode}
+         />
+         <Projects changeDarkMode={changeDarkMode} />
+         <Services
+            changeRequestOpened={changeRequestOpened}
+            changeDarkMode={changeDarkMode}
+         />
+         <About changeRequestOpened={changeRequestOpened} />
+         <Contact changeRequestOpened={changeRequestOpened} />
+      </div>
    );
 }
 

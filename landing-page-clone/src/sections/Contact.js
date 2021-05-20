@@ -2,11 +2,11 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
-import { ReactComponent as Triangle } from "../../../assets/triangle.svg";
-import { ReactComponent as FloatingMountains } from "../../../assets/floatMountains.svg";
-import YellowButton from "../../../components/YellowButton";
-import InputForm from "../../../components/InputForm";
-import Animations from "../../../animation";
+import { ReactComponent as Triangle } from "../assets/triangle.svg";
+import { ReactComponent as FloatingMountains } from "../assets/floatMountains.svg";
+import YellowButton from "../components/YellowButton";
+import InputForm from "../components/InputForm";
+import Animations from "../animation";
 
 function Contact({ updateContactDetails, changeRequestOpened }) {
    const controls = useAnimation();
@@ -18,7 +18,7 @@ function Contact({ updateContactDetails, changeRequestOpened }) {
          controls.start("visible");
       } else {
          controls.start("initialY");
-         controls.start("hidden");
+         // controls.start("hidden");
       }
    }, [controls, inView]);
 
@@ -63,6 +63,17 @@ function Contact({ updateContactDetails, changeRequestOpened }) {
 
             <div className="form-container">
                <motion.div
+                  className="input-details"
+                  ref={ref}
+                  variants={Animations.movement}
+                  initial="initialX"
+                  custom={20}
+                  animate={controls}
+                  transition={{ duration: 0.75, delay: 1 }}
+               >
+                  <InputForm updateContactDetails={updateContactDetails} />
+               </motion.div>
+               <motion.div
                   className="fixed-form contact-details"
                   ref={ref}
                   variants={Animations.movement}
@@ -75,8 +86,7 @@ function Contact({ updateContactDetails, changeRequestOpened }) {
                   <h2>Of Business</h2>
                   <h5 className="description">
                      Only a few steps are left before your success. Leave a
-                     request. And we will help you with your project! Regards,
-                     EVOXLAB Team.
+                     request. And we will help you with your project!
                   </h5>
                   <YellowButton
                      text="Start Project"
@@ -101,17 +111,6 @@ function Contact({ updateContactDetails, changeRequestOpened }) {
                         <p className="contact-info">123 Clone Street</p>
                      </div>
                   </div>
-               </motion.div>
-               <motion.div
-                  className="input-details"
-                  ref={ref}
-                  variants={Animations.movement}
-                  initial="initialX"
-                  custom={-20}
-                  animate={controls}
-                  transition={{ duration: 0.75, delay: 1 }}
-               >
-                  <InputForm updateContactDetails={updateContactDetails} />
                </motion.div>
             </div>
          </div>

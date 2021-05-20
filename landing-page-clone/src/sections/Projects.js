@@ -1,4 +1,4 @@
-import ProjectPanel from "../../../components/ProjectPanel";
+import ProjectPanel from "../components/ProjectPanel";
 import { useState } from "react";
 
 function Projects({ changeDarkMode }) {

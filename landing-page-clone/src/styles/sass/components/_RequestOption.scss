@@ -3,7 +3,7 @@
 $box-size: 20rem;
 
 .option-item {
-   @include flex-container(flex-start, flex-end);
+   @include flex-container(flex-start, flex-start);
    margin-top: 15rem;
    cursor: pointer;
 

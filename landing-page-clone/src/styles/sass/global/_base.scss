@@ -9,16 +9,12 @@
 
 html {
    font-size: 6.25%;
-   overflow: hidden;
+   scroll-behavior: smooth;
 }
 
 body {
    font: 14rem "Open Sans", sans-serif;
    @extend %hide-scrollbars;
-}
-
-section {
-   scroll-snap-align: start;
 }
 
 h1,

@@ -7,10 +7,8 @@ $description-indent: 20%;
    height: 100%;
    background: white;
 
-   .heading {
-      h2:last-child {
-         padding-left: 8%;
-      }
+   h2:last-child {
+      padding-left: 8%;
    }
 
    .yellow-btn-container {
@@ -42,5 +40,33 @@ $description-indent: 20%;
 
    .description {
       color: $light-gray;
+   }
+}
+
+@media only screen and (max-width: 1024px) {
+   .page-default {
+      @include flex-container(flex-start, center, column);
+      height: fit-content;
+
+      h2 {
+         font-size: 10vw;
+         text-align: center;
+
+         &:last-child {
+            padding: 0;
+         }
+      }
+
+      .description {
+         position: relative;
+         top: 2vh;
+         left: auto;
+         width: 90%;
+         text-align: center;
+      }
+
+      .big-yellow-btn {
+         display: none;
+      }
    }
 }

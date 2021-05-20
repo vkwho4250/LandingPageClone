@@ -8,7 +8,9 @@ function Menu({
    changeItemHovered,
    itemHovered,
    changeMenuOpened,
+   changeRequestOpened,
    menuOpened,
+   changeCurrentSection,
 }) {
    const pages = [
       {
@@ -39,13 +41,14 @@ function Menu({
 
    return (
       <motion.div
-         animate={menuOpened ? { x: 2000, y: 0 } : { x: 0, y: 0 }}
-         transition={{ duration: 1, type: "spring", bounce: 0.1 }}
+         animate={menuOpened ? { x: 2500, y: 0 } : { x: 0, y: 0 }}
+         transition={{ duration: 1.5, type: "spring", bounce: 0.1 }}
          id="menu"
       >
          <RightSidebar
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
+            changeRequestOpened={changeRequestOpened}
          />
          <LeftSidebar
             changeItemHovered={changeItemHovered}
@@ -61,6 +64,8 @@ function Menu({
                         index={index}
                         changeItemHovered={changeItemHovered}
                         itemHovered={itemHovered}
+                        changeMenuOpened={changeMenuOpened}
+                        changeCurrentSection={changeCurrentSection}
                      />
                   </li>
                );

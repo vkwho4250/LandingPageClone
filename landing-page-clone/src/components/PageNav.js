@@ -1,7 +1,12 @@
-import { useEffect, useState } from "react";
 import PageNavBtn from "./PageNavBtn";
 
-function PageNav({ changeItemHovered, itemHovered, darkMode }) {
+function PageNav({
+   changeItemHovered,
+   itemHovered,
+   darkMode,
+   changeCurrentSection,
+   currentSection,
+}) {
    const pages = [
       "home",
       "practice",
@@ -23,6 +28,8 @@ function PageNav({ changeItemHovered, itemHovered, darkMode }) {
                   changeItemHovered={changeItemHovered}
                   itemHovered={itemHovered}
                   darkMode={darkMode}
+                  changeCurrentSection={changeCurrentSection}
+                  currentSection={currentSection}
                />
             );
          })}

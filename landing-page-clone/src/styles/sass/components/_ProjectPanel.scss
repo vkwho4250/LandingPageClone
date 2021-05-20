@@ -1,6 +1,7 @@
 @use "../global" as *;
 
 .project-panel {
+   position: relative;
    height: 100%;
    width: 100%;
    @include flex-container(flex-start, center, column);
@@ -47,4 +48,31 @@
 
 .border {
    border-right: 1rem solid black;
+}
+
+@media only screen and (max-width: 1024px) {
+   .project-panel {
+      position: relative;
+      border: 1rem solid red;
+
+      h1 {
+         display: none;
+      }
+   }
+
+   .project-details {
+      position: absolute;
+      height: 100%;
+      @include flex-container(center, center, column);
+      top: auto;
+
+      h2 {
+         height: auto;
+         font-size: 4vw;
+      }
+   }
+
+   .project-image {
+      width: 100%;
+   }
 }

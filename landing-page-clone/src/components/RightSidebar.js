@@ -6,8 +6,14 @@ function RightSidebar({
    changeItemHovered,
    itemHovered,
    darkMode,
+   currentSection,
+   changeCurrentSection,
 }) {
    const languages = ["en", "ua", "ru"];
+
+   function testing() {
+      console.log("casdf");
+   }
 
    return (
       <div id="right-sidebar" className="sidebar">
@@ -30,6 +36,8 @@ function RightSidebar({
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
             darkMode={darkMode}
+            currentSection={currentSection}
+            changeCurrentSection={changeCurrentSection}
          />
          <div className="start-project-container" onClick={changeRequestOpened}>
             <SlideButton

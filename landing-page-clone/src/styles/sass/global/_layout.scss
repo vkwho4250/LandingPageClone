@@ -92,10 +92,10 @@
 .form-container {
    position: relative;
    padding: 0 10%;
+}
 
-   .fixed-form {
-      width: 700rem;
-   }
+.fixed-form {
+   width: 65%;
 }
 
 .pulse {
@@ -106,6 +106,10 @@
    left: 0;
    border: 2rem solid $siteYellow;
    transition: all 0.8s;
+}
+
+.to-submission {
+   position: initial;
 }
 
 .no-display {
@@ -121,6 +125,10 @@
       background: white;
    }
 
+   .yellow {
+      background: $siteYellow;
+   }
+
    .primary-text {
       color: white;
    }
@@ -131,5 +139,41 @@
 
    .line {
       border-right: 1rem solid white;
+   }
+}
+
+@media only screen and (max-width: 1024px) {
+   %content-container {
+      width: 100vw;
+      height: 100vh;
+      box-shadow: none;
+   }
+
+   .sidebar {
+      display: none;
+   }
+
+   .fixed-form {
+      @include flex-container(center, center, column);
+      width: 100%;
+   }
+
+   .page-right {
+      position: relative;
+      width: 100%;
+      height: auto;
+      top: auto;
+      right: auto;
+      display: block;
+      @include flex-container(center, center, column);
+   }
+
+   .list-container {
+      width: 60%;
+   }
+
+   .panel-display {
+      grid-template-columns: none;
+      grid-template-rows: repeat(5, 1fr);
    }
 }

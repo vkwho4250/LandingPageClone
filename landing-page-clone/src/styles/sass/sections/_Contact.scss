@@ -72,7 +72,7 @@ header {
       margin: 4vh 0 3vh;
    }
 
-   &:last-child {
+   &:first-child {
       padding: 2vh 0 0 7vw;
 
       .big-yellow-btn {
@@ -118,4 +118,29 @@ header {
    top: 5%;
    right: 5%;
    width: 70%;
+}
+
+@media only screen and (max-width: 1024px) {
+   #contact-page {
+      .fixed-form {
+         visibility: hidden;
+      }
+   }
+
+   header {
+      .triangle {
+         display: none;
+      }
+
+      svg {
+         width: 80vw;
+      }
+   }
+
+   .input-details {
+      position: relative;
+      width: 100%;
+      top: auto;
+      right: auto;
+   }
 }

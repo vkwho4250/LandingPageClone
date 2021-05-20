@@ -34,3 +34,16 @@
       margin: 2vh 1vw 0 0;
    }
 }
+
+@media only screen and (max-width: 1024px) {
+   #contact-form {
+      position: relative;
+      width: 100%;
+      @include flex-container(flex-start, center, column);
+
+      .big-yellow-btn {
+         position: relative;
+         right: auto;
+      }
+   }
+}

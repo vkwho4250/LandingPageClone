@@ -2,10 +2,10 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
-import Animations from "../../../animation";
-import PageLayout from "../../../components/PageLayout";
-import ListItem from "../../../components/ListItem";
-import SlidingText from "../../../components/SlidingText";
+import Animations from "../animation";
+import PageLayout from "../components/PageLayout";
+import ListItem from "../components/ListItem";
+import SlidingText from "../components/SlidingText";
 
 function Services({ changeRequestOpened, changeDarkMode }) {
    const description =

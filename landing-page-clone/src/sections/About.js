@@ -2,8 +2,8 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
-import PageLayout from "../../../components/PageLayout";
-import Animations from "../../../animation";
+import PageLayout from "../components/PageLayout";
+import Animations from "../animation";
 
 function About({ changeRequestOpened }) {
    const description =
