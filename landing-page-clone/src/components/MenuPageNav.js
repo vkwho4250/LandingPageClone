@@ -1,18 +1,29 @@
 import { motion } from "framer-motion";
 import Animations from "../animation";
+import { useState } from "react";
 
-function MenuPageNav({ page, index, changeItemHovered, itemHovered }) {
+function MenuPageNav({ page, index }) {
+   const [onHover, setOnHover] = useState(false);
+
+   function changeOnHover(e) {
+      if (e.type === "mouseenter") {
+         setOnHover(true);
+      } else {
+         setOnHover(false);
+      }
+   }
+
    return (
       <button
          id={`${page.link}-menu-btn`}
          className="menu-page-nav"
-         onMouseEnter={changeItemHovered}
-         onMouseLeave={changeItemHovered}
+         onMouseEnter={changeOnHover}
+         onMouseLeave={changeOnHover}
       >
          <motion.h2
             variant={Animations.movement}
             animate={
-               itemHovered === `${page.link}-menu-btn`
+               onHover
                   ? { x: "5%", y: 0, color: "rgb(255,255,255)" }
                   : "endingXY"
             }
@@ -22,7 +33,7 @@ function MenuPageNav({ page, index, changeItemHovered, itemHovered }) {
          </motion.h2>
          <motion.h3
             animate={
-               itemHovered === `${page.link}-menu-btn`
+               onHover
                   ? { x: "100%", y: 0, scale: -1 }
                   : { x: 0, y: 0, scale: -1 }
             }
@@ -31,7 +42,7 @@ function MenuPageNav({ page, index, changeItemHovered, itemHovered }) {
             className="bottom-line"
             variant={Animations.movement}
             animate={
-               itemHovered === `${page.link}-menu-btn`
+               onHover
                   ? { x: "275%", y: 0, opacity: 1, width: "15%" }
                   : { x: 0, y: 0, opacity: 0, width: "20%" }
             }

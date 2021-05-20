@@ -1,8 +1,13 @@
-import PageLayout from "../components/PageLayout";
-import ListItem from "../components/ListItem";
-import SlidingText from "../components/SlidingText";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
-function Services() {
+import Animations from "../../../animation";
+import PageLayout from "../../../components/PageLayout";
+import ListItem from "../../../components/ListItem";
+import SlidingText from "../../../components/SlidingText";
+
+function Services({ changeRequestOpened, changeDarkMode }) {
    const description =
       "We are a full cycle agency, provide a full range of services to represent your business in a digital environment.";
 
@@ -14,9 +19,21 @@ function Services() {
       "SEO, SMM, PCC",
    ];
 
+   const controls = useAnimation();
+   const [ref, inView] = useInView();
+
+   useEffect(() => {
+      if (inView) {
+         controls.start("endingXY");
+         changeDarkMode(false);
+      } else {
+         controls.start("initialX");
+      }
+   }, [controls, inView]);
+
    return (
-      <div id="practice-page" className="page-view">
-         <div className="main-container practice">
+      <section id="services-page" className="page-view">
+         <div className="main-container">
             <SlidingText firstSection="Our" secondSection="Expertise" />
             <SlidingText firstSection="Our" secondSection="Expertise" />
             <PageLayout
@@ -24,8 +41,17 @@ function Services() {
                secondHeader="Competencies"
                description={description}
                btnText="Start Project"
+               changeRequestOpened={changeRequestOpened}
             />
-            <div className="page-right">
+            <motion.div
+               className="page-right"
+               ref={ref}
+               variants={Animations.movement}
+               initial="initialX"
+               custom={-20}
+               animate={controls}
+               transition={{ duration: 0.75, delay: 0.5 }}
+            >
                <div className="list-container">
                   <ul className="left-column">
                      {leftList.map((service, index) => {
@@ -46,9 +72,9 @@ function Services() {
                      })}
                   </ul>
                </div>
-            </div>
+            </motion.div>
          </div>
-      </div>
+      </section>
    );
 }
 

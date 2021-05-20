@@ -1,7 +1,7 @@
-import ProjectPanel from "../components/ProjectPanel";
+import ProjectPanel from "../../../components/ProjectPanel";
 import { useState } from "react";
 
-function Projects() {
+function Projects({ changeDarkMode }) {
    const projects = [
       {
          client: "ABC Group",
@@ -57,6 +57,7 @@ function Projects() {
                         project={project}
                         whichPanel={whichPanel}
                         hoverPanel={hoverPanel}
+                        changeDarkMode={changeDarkMode}
                      />
                   );
                })}

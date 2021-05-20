@@ -1,10 +1,10 @@
 import CloseBtn from "./CloseBtn";
 import RequestNumber from "./RequestNumber";
-import Form from "./Form";
+import InputForm from "./InputForm";
 import RequestCheckForm from "./RequestCheckForm";
 import { motion } from "framer-motion";
 
-function Request({ changeRequestOpened, requestOpened }) {
+function Request({ changeRequestOpened, requestOpened, updateRequestDetails }) {
    const options = [
       {
          title: "Web & App Development",
@@ -50,6 +50,7 @@ function Request({ changeRequestOpened, requestOpened }) {
    return (
       <motion.div
          id="request-page"
+         initial={{ opacity: 0 }}
          animate={
             requestOpened
                ? { opacity: 1, zIndex: 99 }
@@ -68,20 +69,20 @@ function Request({ changeRequestOpened, requestOpened }) {
                <h1>Or leave a request</h1>
             </div>
             <div className="form-container">
-               <form id="check-form">
+               <form className="fixed-form">
                   {options.map((option, index) => {
                      return (
                         <RequestCheckForm
+                           key={index}
                            title={option.title}
                            firstSet={splitHalf(option.items)[0]}
                            secondSet={splitHalf(option.items)[1]}
-                           key={index}
+                           updateRequestDetails={updateRequestDetails}
                         />
                      );
                   })}
                </form>
-
-               <Form />
+               <InputForm />
             </div>
          </div>
       </motion.div>

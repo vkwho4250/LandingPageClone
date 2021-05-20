@@ -1,16 +1,38 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+
 import Animations from "../animation";
 
-function ProjectPanel({ index, project, whichPanel, hoverPanel }) {
+function ProjectPanel({
+   index,
+   project,
+   whichPanel,
+   hoverPanel,
+   changeDarkMode,
+}) {
+   const controls = useAnimation();
+   const [ref, inView] = useInView();
+
+   useEffect(() => {
+      if (inView) {
+         controls.start("endingXY");
+         changeDarkMode(true);
+      } else {
+         controls.start("initialY");
+      }
+   }, [controls, inView]);
+
    return (
       <motion.div
          id={`panel-${index + 1}`}
          className={`project-panel ${index !== 4 ? "border" : ""}`}
          onMouseEnter={whichPanel}
          onMouseLeave={whichPanel}
+         ref={ref}
          variants={Animations.movement}
          initial="initialY"
-         animate="endingXY"
+         animate={controls}
          custom={500}
          transition={{ duration: 0.5, delay: index * 0.2, ease: "linear" }}
       >

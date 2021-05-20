@@ -1,10 +1,25 @@
-import PageLayout from "../components/PageLayout";
-import { motion } from "framer-motion";
-import Animations from "../animation";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
-function Awards() {
+import PageLayout from "../../../components/PageLayout";
+import Animations from "../../../animation";
+
+function Awards({ changeRequestOpened, changeDarkMode }) {
    const description =
       "Keeping abreast of the latest trends in graphic and web design is our primary concern. Confirmation of this is our rewards.";
+
+   const controls = useAnimation();
+   const [ref, inView] = useInView();
+
+   useEffect(() => {
+      if (inView) {
+         controls.start("endingXY");
+         changeDarkMode(true);
+      } else {
+         controls.start("initialX");
+      }
+   }, [controls, inView]);
 
    return (
       <section id="awards-page" className="page-view dark">
@@ -15,13 +30,15 @@ function Awards() {
                description={description}
                btnText="Start Project"
                display="dark"
+               changeRequestOpened={changeRequestOpened}
             />
             <motion.ul
                className="awards-list-container"
+               ref={ref}
                variants={Animations.movement}
                initial="initialX"
                custom={-20}
-               animate="endingXY"
+               animate={controls}
                transition={{ duration: 0.75, delay: 0.5 }}
             >
                <li className="award">

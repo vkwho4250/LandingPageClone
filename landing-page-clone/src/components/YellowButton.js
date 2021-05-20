@@ -1,6 +1,6 @@
-function YellowButton({ text }) {
+function YellowButton({ text, changeRequestOpened = null }) {
    return (
-      <button className="big-yellow-btn">
+      <button onClick={changeRequestOpened} className="big-yellow-btn">
          <h6>{text}</h6>
          <div className="pulse"></div>
       </button>

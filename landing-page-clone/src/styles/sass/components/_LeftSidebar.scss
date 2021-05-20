@@ -1,6 +1,6 @@
-#left-sidebar {
-   .logo {
-      transform: rotate(-90deg) translateX(-50%);
-      width: 15vh;
-   }
+#logo {
+   transform: rotate(-90deg) translateX(-50%);
+   width: 15vh;
+   fill: black;
+   transition: all 1s;
 }

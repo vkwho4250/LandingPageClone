@@ -11,8 +11,11 @@ function LeftSidebar({
    const socials = ["FI", "FB", "IN", "BE", "DR"];
 
    return (
-      <div id="left-sidebar" className="sidebar">
-         <Logo className="logo" />
+      <div
+         id="left-sidebar"
+         className={`sidebar ${darkMode ? "dark-mode" : ""}`}
+      >
+         <Logo id="logo" />
          <MenuBtn changeMenuOpened={changeMenuOpened} />
 
          <ul className="buttons-container">

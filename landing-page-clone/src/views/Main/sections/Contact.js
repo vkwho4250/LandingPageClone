@@ -1,21 +1,38 @@
-import { ReactComponent as Triangle } from "../assets/triangle.svg";
-import { ReactComponent as FloatingMountains } from "../assets/floatMountains.svg";
-import YellowButton from "../components/YellowButton";
-import Form from "../components/Form";
-import { motion } from "framer-motion";
-import Animations from "../animation";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
-function Contact() {
+import { ReactComponent as Triangle } from "../../../assets/triangle.svg";
+import { ReactComponent as FloatingMountains } from "../../../assets/floatMountains.svg";
+import YellowButton from "../../../components/YellowButton";
+import InputForm from "../../../components/InputForm";
+import Animations from "../../../animation";
+
+function Contact({ updateContactDetails, changeRequestOpened }) {
+   const controls = useAnimation();
+   const [ref, inView] = useInView();
+
+   useEffect(() => {
+      if (inView) {
+         controls.start("endingXY");
+         controls.start("visible");
+      } else {
+         controls.start("initialY");
+         controls.start("hidden");
+      }
+   }, [controls, inView]);
+
    return (
       <section id="contact-page" className="page-view">
          <div className="main-container contact">
-            <header className="middle-piece">
+            <header>
                <motion.div
                   className="container"
+                  ref={ref}
                   variants={Animations.movement}
                   initial="initialY"
                   custom={20}
-                  animate="endingXY"
+                  animate={controls}
                   transition={{ duration: 0.75, delay: 0.5 }}
                >
                   <h1>Contact Us</h1>
@@ -23,31 +40,35 @@ function Contact() {
                </motion.div>
                <motion.div
                   className="floating-mountains"
+                  ref={ref}
                   variants={Animations.movement}
                   initial="initialY"
                   custom={20}
-                  animate="endingXY"
+                  animate={controls}
                   transition={{ duration: 0.75 }}
                >
                   <FloatingMountains />
                </motion.div>
                <motion.div
                   className="container"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  ref={ref}
+                  variants={Animations.fade}
+                  initial="hidden"
+                  animate={controls}
                   transition={{ duration: 0.75, delay: 1 }}
                >
                   <Triangle className="triangle" />
                </motion.div>
             </header>
 
-            <div className="grid-container">
+            <div className="form-container">
                <motion.div
-                  className="contact-details"
+                  className="fixed-form contact-details"
+                  ref={ref}
                   variants={Animations.movement}
                   initial="initialX"
                   custom={20}
-                  animate="endingXY"
+                  animate={controls}
                   transition={{ duration: 0.75, delay: 1 }}
                >
                   <h2>Conquer new peaks</h2>
@@ -57,7 +78,11 @@ function Contact() {
                      request. And we will help you with your project! Regards,
                      EVOXLAB Team.
                   </h5>
-                  <YellowButton text="Start Project" />
+                  <YellowButton
+                     text="Start Project"
+                     changeRequestOpened={changeRequestOpened}
+                  />
+
                   <div className="contact-method-container">
                      <div className="contact-method">
                         <h3>Our Phone Number</h3>
@@ -78,14 +103,15 @@ function Contact() {
                   </div>
                </motion.div>
                <motion.div
-                  className="contact-details"
+                  className="input-details"
+                  ref={ref}
                   variants={Animations.movement}
                   initial="initialX"
                   custom={-20}
-                  animate="endingXY"
+                  animate={controls}
                   transition={{ duration: 0.75, delay: 1 }}
                >
-                  <Form />
+                  <InputForm updateContactDetails={updateContactDetails} />
                </motion.div>
             </div>
          </div>

@@ -6,6 +6,15 @@
 @forward "./Contact";
 @forward "./Awards";
 
+#main-view {
+   @extend %hide-scrollbars;
+   width: 100vw;
+   height: 100vh;
+   overflow-y: scroll;
+   scroll-snap-type: y mandatory;
+   scroll-behavior: smooth;
+}
+
 .page-view {
    width: 100vw;
    height: 100vh;

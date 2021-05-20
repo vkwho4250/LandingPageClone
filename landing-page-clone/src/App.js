@@ -1,64 +1,60 @@
 import "./styles/css/styles.css";
+import Main from "./views/Main/Main";
+import Submission from "./views/Submission";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Home from "./views/Home";
-import Practice from "./views/Practice";
-import Awards from "./views/Awards";
-import Projects from "./views/Projects";
-import Services from "./views/Services";
-import About from "./views/About";
-import Contact from "./views/Contact";
-import RightSidebar from "./components/RightSidebar";
-import LeftSidebar from "./components/LeftSidebar";
-import Menu from "./components/Menu";
-import Request from "./components/Request";
 import { useState } from "react";
 
 function App() {
-   const [menuOpened, setMenuOpened] = useState(false);
-   const [requestOpened, setRequestOpened] = useState(false);
-   const [darkMode, setDarkMode] = useState(false);
-   const [itemHovered, setItemHovered] = useState("");
+   // const [menuOpened, setMenuOpened] = useState(false);
+   // const [requestOpened, setRequestOpened] = useState(false);
+   // const [darkMode, setDarkMode] = useState(false);
+   const [requestDetails, setRequestDetails] = useState([]);
+   const [contactDetails, setContactDetails] = useState("");
 
-   function changeMenuOpened() {
-      setMenuOpened(!menuOpened);
+   function updateContactDetails(details) {
+      setContactDetails(details);
    }
 
-   function changeRequestOpened() {
-      setRequestOpened(!requestOpened);
-   }
-
-   function changeItemHovered(e) {
-      if (e.type === "mouseleave") {
-         setItemHovered("");
+   function updateRequestDetails(item) {
+      if (requestDetails.includes(item)) {
+         setRequestDetails(requestDetails.filter((detail) => detail !== item));
       } else {
-         setItemHovered(e.currentTarget.id);
-         console.log(e.currentTarget.id);
+         setRequestDetails([...requestDetails, item]);
       }
    }
 
+   // function changeMenuOpened() {
+   //    setMenuOpened(!menuOpened);
+   // }
+
+   // function changeRequestOpened() {
+   //    setRequestOpened(!requestOpened);
+   // }
+
    return (
-      <div className="App">
-         <LeftSidebar
-            changeItemHovered={changeItemHovered}
-            itemHovered={itemHovered}
-            changeMenuOpened={changeMenuOpened}
-            darkMode={darkMode}
-         />
+      <Router>
+         <Switch>
+            <Route path="/submission">
+               <Submission />
+            </Route>
+            <Route path="/">
+               <Main
+                  updateRequestDetails={updateRequestDetails}
+                  updateContactDetails={updateContactDetails}
+               />
+            </Route>
+         </Switch>
+         {/* <LeftSidebar changeMenuOpened={changeMenuOpened} darkMode={darkMode} />
          <RightSidebar
             changeRequestOpened={changeRequestOpened}
-            changeItemHovered={changeItemHovered}
-            itemHovered={itemHovered}
             darkMode={darkMode}
          />
-         <Menu
-            changeItemHovered={changeItemHovered}
-            itemHovered={itemHovered}
-            changeMenuOpened={changeMenuOpened}
-            menuOpened={menuOpened}
-         />
+         <Menu changeMenuOpened={changeMenuOpened} menuOpened={menuOpened} />
          <Request
             changeRequestOpened={changeRequestOpened}
             requestOpened={requestOpened}
+            updateRequestDetails={updateRequestDetails}
          />
          <Home />
          <Practice />
@@ -66,8 +62,8 @@ function App() {
          <Projects />
          <Services />
          <About />
-         <Contact />
-      </div>
+         <Contact updateContactDetails={updateContactDetails} /> */}
+      </Router>
    );
 }
 

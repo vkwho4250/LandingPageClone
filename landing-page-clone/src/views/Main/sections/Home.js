@@ -1,10 +1,11 @@
-import { ReactComponent as Triangle } from "../assets/triangle.svg";
-import Badge from "../components/Badge";
+import { ReactComponent as Triangle } from "../../../assets/triangle.svg";
+import Badge from "../../../components/Badge";
+
 function Home() {
    const panels = [...Array(5).keys()];
 
    return (
-      <section id="home-pagr" className="page-view">
+      <section id="home-page" className="page-view">
          <div className="panel-container">
             <div className="side-badges">
                <Badge text="Honors" color="#9BD4D7" />

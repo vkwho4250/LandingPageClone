@@ -1,8 +1,11 @@
-import PageLayout from "../components/PageLayout";
-import { motion } from "framer-motion";
-import Animations from "../animation";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
-function About() {
+import PageLayout from "../../../components/PageLayout";
+import Animations from "../../../animation";
+
+function About({ changeRequestOpened }) {
    const description =
       "We are a mix of design, technology and marketing. Our projects are a combination of creativity, trends and traditions. Our mission is to accompany you on your way to conquering the peaks of business.";
 
@@ -16,6 +19,17 @@ function About() {
       "Maintenance: Opinion Monitoring and Regular Updating",
    ];
 
+   const controls = useAnimation();
+   const [ref, inView] = useInView();
+
+   useEffect(() => {
+      if (inView) {
+         controls.start("endingXY");
+      } else {
+         controls.start("initialX");
+      }
+   }, [controls, inView]);
+
    return (
       <section id="about-page" className="page-view">
          <div className="main-container">
@@ -24,13 +38,15 @@ function About() {
                secondHeader="About Us"
                description={description}
                btnText="Start Project"
+               changeRequestOpened={changeRequestOpened}
             />
             <motion.div
                className="text-content-container"
+               ref={ref}
                variants={Animations.movement}
                initial="initialX"
                custom={-20}
-               animate="endingXY"
+               animate={controls}
                transition={{ duration: 0.75, delay: 0.5 }}
             >
                <h1>

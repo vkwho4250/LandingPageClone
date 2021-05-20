@@ -26,6 +26,9 @@
 }
 
 %scrollbar {
+   scrollbar-width: thin;
+   scrollbar-color: $siteYellow $light-gray;
+
    &::-webkit-scrollbar {
       width: 14rem;
    }
@@ -86,19 +89,13 @@
    }
 }
 
-.grid-container {
-   border: 1rem solid red;
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-   height: 60%;
-   padding: 0 5vw;
-}
+.form-container {
+   position: relative;
+   padding: 0 10%;
 
-.dark-mode {
-   color: white;
+   .fixed-form {
+      width: 700rem;
+   }
 }
 
 .pulse {
@@ -113,4 +110,26 @@
 
 .no-display {
    display: none;
+}
+
+.dark-mode {
+   #logo {
+      fill: white;
+   }
+
+   .circle {
+      background: white;
+   }
+
+   .primary-text {
+      color: white;
+   }
+
+   .page-num-container h4 {
+      color: white;
+   }
+
+   .line {
+      border-right: 1rem solid white;
+   }
 }

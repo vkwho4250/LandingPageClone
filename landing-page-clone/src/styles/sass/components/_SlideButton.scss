@@ -24,6 +24,7 @@ $button-size: 25rem;
       font-size: 22rem;
       writing-mode: vertical-rl;
       order: 2;
+      transition: all 1s;
 
       &.secondary-color {
          color: $siteYellow;

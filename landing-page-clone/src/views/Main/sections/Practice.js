@@ -1,15 +1,30 @@
-import PageLayout from "../components/PageLayout";
-import ListItem from "../components/ListItem";
-import SlidingText from "../components/SlidingText";
-import { motion } from "framer-motion";
-import Animations from "../animation";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
-function Practice() {
+import PageLayout from "../../../components/PageLayout";
+import ListItem from "../../../components/ListItem";
+import SlidingText from "../../../components/SlidingText";
+import Animations from "../../../animation";
+
+function Practice({ changeRequestOpened, changeDarkMode }) {
    const description =
       "We create premium web design, thoughtful and user-friendly interfaces that solve business problems";
 
    const leftList = ["UI Design", "UX Analytics", "Prototyping"];
    const rightList = ["Web Developement", "3D Modeling", "Design Thinking"];
+
+   const controls = useAnimation();
+   const [ref, inView] = useInView();
+
+   useEffect(() => {
+      if (inView) {
+         controls.start("endingXY");
+         changeDarkMode(false);
+      } else {
+         controls.start("initialX");
+      }
+   }, [controls, inView]);
 
    return (
       <section id="practice-page" className="page-view">
@@ -21,13 +36,15 @@ function Practice() {
                secondHeader="We Do"
                description={description}
                btnText="Start Project"
+               changeRequestOpened={changeRequestOpened}
             />
             <motion.div
                className="page-right"
+               ref={ref}
                variants={Animations.movement}
                initial="initialX"
                custom={-20}
-               animate="endingXY"
+               animate={controls}
                transition={{ duration: 0.75, delay: 0.5 }}
             >
                <div className="list-container">

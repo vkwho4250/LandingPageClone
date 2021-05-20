@@ -23,6 +23,11 @@ const collapse = {
    },
 };
 
-const Animations = { movement, textSlide, collapse };
+const fade = {
+   visible: { opacity: 1 },
+   hidden: { opacity: 0 },
+};
+
+const Animations = { movement, textSlide, collapse, fade };
 
 export default Animations;

@@ -10,7 +10,7 @@
 
 .x-box {
    z-index: 99;
-   width: 100%;
+   width: inherit;
    height: 2.5vw;
    @include flex-container(center, center, column);
    cursor: pointer;

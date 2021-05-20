@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-function RequestOption({ item }) {
+function RequestOption({ item, updateRequestDetails }) {
    const [checked, setChecked] = useState(false);
 
-   function changeChecked() {
+   function changeChecked(e) {
+      updateRequestDetails(item);
       setChecked(!checked);
    }
 
@@ -24,7 +25,7 @@ function RequestOption({ item }) {
    };
 
    return (
-      <div className="option-item" onClick={changeChecked}>
+      <div name={item} className="option-item" onClick={changeChecked}>
          <motion.div
             className="checkbox"
             animate={checked ? checkedBox : uncheckedBox}
