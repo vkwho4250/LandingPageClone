@@ -5,6 +5,7 @@
    width: 90vw;
    height: 90vh;
    box-shadow: 0 0 2vw 1vw rgba(black, 0.2);
+   overflow: hidden;
 }
 
 .main-container {
@@ -69,7 +70,7 @@
 
 .sidebar {
    position: fixed;
-   z-index: 99;
+   z-index: 50;
    width: 5vw;
    height: 100vh;
    @include flex-container(space-between, center, column);
@@ -117,7 +118,7 @@
 }
 
 .dark-mode {
-   #logo {
+   .logo {
       fill: white;
    }
 
@@ -143,19 +144,20 @@
 }
 
 @media only screen and (max-width: 1024px) {
+   #app > .sidebar {
+      display: none;
+   }
+
    %content-container {
       width: 100vw;
       height: 100vh;
       box-shadow: none;
    }
 
-   .sidebar {
-      display: none;
-   }
-
-   .fixed-form {
-      @include flex-container(center, center, column);
-      width: 100%;
+   #main-view {
+      .sidebar {
+         display: none;
+      }
    }
 
    .page-right {
@@ -169,11 +171,22 @@
    }
 
    .list-container {
-      width: 60%;
+      @include flex-container(center, center, column);
+
+      ul {
+         width: 50%;
+         padding-left: 10%;
+      }
    }
 
    .panel-display {
-      grid-template-columns: none;
-      grid-template-rows: repeat(5, 1fr);
+      grid-template-columns: 1fr 2fr 1fr;
+   }
+
+   .main-container {
+      .panel-display {
+         grid-template-columns: none;
+         grid-template-rows: repeat(5, 1fr);
+      }
    }
 }

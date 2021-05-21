@@ -4,10 +4,9 @@ import { useEffect } from "react";
 
 import PageLayout from "../components/PageLayout";
 import ListItem from "../components/ListItem";
-import SlidingText from "../components/SlidingText";
 import Animations from "../animation";
 
-function Practice({ changeRequestOpened, changeDarkMode }) {
+function Practice({ changeRequestOpened, changeCurrentSection }) {
    const description =
       "We create premium web design, thoughtful and user-friendly interfaces that solve business problems";
 
@@ -20,7 +19,7 @@ function Practice({ changeRequestOpened, changeDarkMode }) {
    useEffect(() => {
       if (inView) {
          controls.start("endingXY");
-         changeDarkMode(false);
+         changeCurrentSection("practice-page");
       } else {
          controls.start("initialX");
       }
@@ -29,14 +28,13 @@ function Practice({ changeRequestOpened, changeDarkMode }) {
    return (
       <section id="practice-page" className="page-view">
          <div className="main-container practice">
-            <SlidingText firstSection="UI/UX" secondSection="Design" />
-            <SlidingText firstSection="UI/UX" secondSection="Design" />
             <PageLayout
                firstHeader="What"
                secondHeader="We Do"
                description={description}
                btnText="Start Project"
                changeRequestOpened={changeRequestOpened}
+               image="practice"
             />
             <motion.div
                className="page-right"

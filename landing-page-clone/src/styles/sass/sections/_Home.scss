@@ -46,7 +46,7 @@
 
    h1 {
       font-size: 16vw;
-      line-height: 75%;
+      line-height: 80%;
       color: white;
    }
 
@@ -56,6 +56,7 @@
       font-weight: 600;
       letter-spacing: -1rem;
       text-transform: uppercase;
+      text-shadow: 2rem 2rem black;
    }
 
    &.silhouette {
@@ -79,5 +80,12 @@
 
    &:hover {
       box-shadow: 0 0 30rem 20rem rgba(black, 0.4);
+   }
+}
+
+@media only screen and (max-width: 1024px) {
+   .panel-3,
+   .panel-4 {
+      display: none;
    }
 }

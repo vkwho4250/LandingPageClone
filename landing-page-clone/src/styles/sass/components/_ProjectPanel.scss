@@ -17,6 +17,7 @@
 .project-image {
    filter: brightness(0.3);
    transition: all 0.5s;
+   height: 100%;
 }
 
 .project-details {
@@ -53,7 +54,6 @@
 @media only screen and (max-width: 1024px) {
    .project-panel {
       position: relative;
-      border: 1rem solid red;
 
       h1 {
          display: none;
@@ -74,5 +74,6 @@
 
    .project-image {
       width: 100%;
+      height: auto;
    }
 }

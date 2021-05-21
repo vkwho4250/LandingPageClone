@@ -21,7 +21,7 @@
    @include flex-container(center, center);
    position: relative;
    scroll-snap-align: center;
-   border: 1rem solid red;
+   overflow: hidden;
 }
 
 @media only screen and (max-width: 1024px) {

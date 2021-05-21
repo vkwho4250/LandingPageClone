@@ -5,15 +5,10 @@ function RightSidebar({
    changeRequestOpened,
    changeItemHovered,
    itemHovered,
-   darkMode,
    currentSection,
    changeCurrentSection,
 }) {
    const languages = ["en", "ua", "ru"];
-
-   function testing() {
-      console.log("casdf");
-   }
 
    return (
       <div id="right-sidebar" className="sidebar">
@@ -26,7 +21,7 @@ function RightSidebar({
                         weight={index !== 0 ? "thin" : "default"}
                         changeItemHovered={changeItemHovered}
                         itemHovered={itemHovered}
-                        darkMode={darkMode}
+                        currentSection={currentSection}
                      />
                   </li>
                );
@@ -35,7 +30,6 @@ function RightSidebar({
          <PageNav
             changeItemHovered={changeItemHovered}
             itemHovered={itemHovered}
-            darkMode={darkMode}
             currentSection={currentSection}
             changeCurrentSection={changeCurrentSection}
          />
@@ -44,7 +38,6 @@ function RightSidebar({
                text="Start Project"
                changeItemHovered={changeItemHovered}
                itemHovered={itemHovered}
-               darkMode={darkMode}
             />
          </div>
       </div>

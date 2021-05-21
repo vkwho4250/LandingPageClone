@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import PageLayout from "../components/PageLayout";
 import Animations from "../animation";
 
-function About({ changeRequestOpened }) {
+function About({ changeRequestOpened, changeCurrentSection }) {
    const description =
       "We are a mix of design, technology and marketing. Our projects are a combination of creativity, trends and traditions. Our mission is to accompany you on your way to conquering the peaks of business.";
 
@@ -24,7 +24,9 @@ function About({ changeRequestOpened }) {
 
    useEffect(() => {
       if (inView) {
+         console.log("in-view");
          controls.start("endingXY");
+         changeCurrentSection("about-page");
       } else {
          controls.start("initialX");
       }
@@ -39,6 +41,7 @@ function About({ changeRequestOpened }) {
                description={description}
                btnText="Start Project"
                changeRequestOpened={changeRequestOpened}
+               image={"about"}
             />
             <motion.div
                className="text-content-container"

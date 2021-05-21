@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import PageLayout from "../components/PageLayout";
 import Animations from "../animation";
 
-function Awards({ changeRequestOpened, changeDarkMode }) {
+function Awards({ changeRequestOpened, changeCurrentSection }) {
    const description =
       "Keeping abreast of the latest trends in graphic and web design is our primary concern. Confirmation of this is our rewards.";
 
@@ -15,7 +15,7 @@ function Awards({ changeRequestOpened, changeDarkMode }) {
    useEffect(() => {
       if (inView) {
          controls.start("endingXY");
-         changeDarkMode(true);
+         changeCurrentSection("awards-page");
       } else {
          controls.start("initialX");
       }
@@ -31,6 +31,7 @@ function Awards({ changeRequestOpened, changeDarkMode }) {
                btnText="Start Project"
                display="dark"
                changeRequestOpened={changeRequestOpened}
+               image="awards"
             />
             <motion.ul
                className="awards-list-container"

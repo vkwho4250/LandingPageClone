@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import YellowButton from "./YellowButton";
 
-function InputForm({ updateContactDetails }) {
+function InputForm() {
    const [formInputs, setFormInputs] = useState({
       name: "",
       email: "",
@@ -19,7 +19,6 @@ function InputForm({ updateContactDetails }) {
    }
 
    function submitForm(e) {
-      updateContactDetails(formInputs);
       setFormInputs({
          name: "",
          email: "",

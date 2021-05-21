@@ -8,6 +8,7 @@ import Projects from "./sections/Projects";
 import Services from "./sections/Services";
 import About from "./sections/About";
 import Contact from "./sections/Contact";
+import TopNavBar from "./components/TopNavBar";
 import RightSidebar from "./components/RightSidebar";
 import LeftSidebar from "./components/LeftSidebar";
 import Menu from "./components/Menu";
@@ -16,7 +17,6 @@ import Request from "./components/Request";
 function App() {
    const [menuOpened, setMenuOpened] = useState(false);
    const [requestOpened, setRequestOpened] = useState(false);
-   const [darkMode, setDarkMode] = useState(false);
    const [currentSection, setCurrentSection] = useState("home-page");
 
    function changeCurrentSection(id) {
@@ -31,19 +31,18 @@ function App() {
       setRequestOpened(!requestOpened);
    }
 
-   function changeDarkMode(action) {
-      setDarkMode(action);
-   }
-
    return (
-      <div id="app">
-         <LeftSidebar changeMenuOpened={changeMenuOpened} darkMode={darkMode} />
-         <RightSidebar
-            changeRequestOpened={changeRequestOpened}
-            darkMode={darkMode}
-            currentSection={currentSection}
-            changeCurrentSection={changeCurrentSection}
-         />
+      <div
+         id="app"
+         className={
+            currentSection === "awards-page" ||
+            currentSection === "projects-page"
+               ? "dark-mode"
+               : ""
+         }
+      >
+         <TopNavBar changeMenuOpened={changeMenuOpened} />
+
          <Menu
             changeMenuOpened={changeMenuOpened}
             menuOpened={menuOpened}
@@ -54,22 +53,35 @@ function App() {
             changeRequestOpened={changeRequestOpened}
             requestOpened={requestOpened}
          />
-         <Home />
+         <LeftSidebar changeMenuOpened={changeMenuOpened} />
+         <RightSidebar
+            changeRequestOpened={changeRequestOpened}
+            changeCurrentSection={changeCurrentSection}
+            currentSection={currentSection}
+         />
+
+         <Home changeCurrentSection={changeCurrentSection} />
          <Practice
             changeRequestOpened={changeRequestOpened}
-            changeDarkMode={changeDarkMode}
+            changeCurrentSection={changeCurrentSection}
          />
          <Awards
             changeRequestOpened={changeRequestOpened}
-            changeDarkMode={changeDarkMode}
+            changeCurrentSection={changeCurrentSection}
          />
-         <Projects changeDarkMode={changeDarkMode} />
+         <Projects changeCurrentSection={changeCurrentSection} />
          <Services
             changeRequestOpened={changeRequestOpened}
-            changeDarkMode={changeDarkMode}
+            changeCurrentSection={changeCurrentSection}
          />
-         <About changeRequestOpened={changeRequestOpened} />
-         <Contact changeRequestOpened={changeRequestOpened} />
+         <About
+            changeRequestOpened={changeRequestOpened}
+            changeCurrentSection={changeCurrentSection}
+         />
+         <Contact
+            changeRequestOpened={changeRequestOpened}
+            changeCurrentSection={changeCurrentSection}
+         />
       </div>
    );
 }

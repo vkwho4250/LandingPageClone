@@ -3,7 +3,6 @@ import PageNavBtn from "./PageNavBtn";
 function PageNav({
    changeItemHovered,
    itemHovered,
-   darkMode,
    changeCurrentSection,
    currentSection,
 }) {
@@ -27,7 +26,6 @@ function PageNav({
                   page={page}
                   changeItemHovered={changeItemHovered}
                   itemHovered={itemHovered}
-                  darkMode={darkMode}
                   changeCurrentSection={changeCurrentSection}
                   currentSection={currentSection}
                />

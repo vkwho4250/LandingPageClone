@@ -2,20 +2,12 @@ import SlideButton from "../components/SlideButton";
 import MenuBtn from "../components/MenuBtn";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 
-function LeftSidebar({
-   changeItemHovered,
-   itemHovered,
-   changeMenuOpened,
-   darkMode,
-}) {
+function LeftSidebar({ changeItemHovered, itemHovered, changeMenuOpened }) {
    const socials = ["FI", "FB", "IN", "BE", "DR"];
 
    return (
-      <div
-         id="left-sidebar"
-         className={`sidebar ${darkMode ? "dark-mode" : ""}`}
-      >
-         <Logo id="logo" />
+      <div id="left-sidebar" className="sidebar">
+         <Logo className="logo" />
          <MenuBtn changeMenuOpened={changeMenuOpened} />
 
          <ul className="buttons-container">
@@ -27,7 +19,6 @@ function LeftSidebar({
                         direction="left"
                         changeItemHovered={changeItemHovered}
                         itemHovered={itemHovered}
-                        darkMode={darkMode}
                      />
                   </li>
                );

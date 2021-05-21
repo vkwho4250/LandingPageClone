@@ -4,7 +4,7 @@ import InputForm from "./InputForm";
 import RequestCheckForm from "./RequestCheckForm";
 import { motion } from "framer-motion";
 
-function Request({ changeRequestOpened, requestOpened, updateRequestDetails }) {
+function Request({ changeRequestOpened, requestOpened }) {
    const options = [
       {
          title: "Web & App Development",
@@ -62,7 +62,7 @@ function Request({ changeRequestOpened, requestOpened, updateRequestDetails }) {
             <CloseBtn purpose={changeRequestOpened} />
             <div className="request-call">
                <h1>Call Us</h1>
-               <div>
+               <div className="number-container">
                   <RequestNumber number="+1 (123) 456-4567" />
                   <RequestNumber number="+1 (123) 456-5678" />
                </div>
@@ -77,7 +77,6 @@ function Request({ changeRequestOpened, requestOpened, updateRequestDetails }) {
                            title={option.title}
                            firstSet={splitHalf(option.items)[0]}
                            secondSet={splitHalf(option.items)[1]}
-                           updateRequestDetails={updateRequestDetails}
                         />
                      );
                   })}

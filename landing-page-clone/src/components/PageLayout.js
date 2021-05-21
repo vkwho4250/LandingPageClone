@@ -4,6 +4,8 @@ import { useInView } from "react-intersection-observer";
 import YellowButton from "../components/YellowButton";
 import PulseButton from "../components/PulseButton";
 import Animations from "../animation";
+import SlidingText from "../components/SlidingText";
+
 import { useEffect } from "react";
 
 function PageLayout({
@@ -13,6 +15,7 @@ function PageLayout({
    btnText,
    display = "light",
    changeRequestOpened,
+   image,
 }) {
    const controls = useAnimation();
    const [ref, inView] = useInView();
@@ -26,22 +29,22 @@ function PageLayout({
    }, [controls, inView]);
 
    return (
-      <div className={`page-default ${display}`}>
+      <div className={`page-default ${display}`} ref={ref}>
          <motion.div
-            className="heading"
-            ref={ref}
             variants={Animations.movement}
             initial="initialX"
             custom={-20}
             animate={controls}
             transition={{ duration: 0.75 }}
          >
-            <h2>{firstHeader}</h2>
-            <h2>{secondHeader}</h2>
+            <div className="heading-text">
+               <h2>{firstHeader}</h2>
+               <h2>{secondHeader}</h2>
+            </div>
+            <SlidingText image={image} />
          </motion.div>
          <motion.h5
             className="description"
-            ref={ref}
             variants={Animations.movement}
             initial="initialX"
             custom={-20}
@@ -52,7 +55,6 @@ function PageLayout({
          </motion.h5>
          <motion.div
             className="yellow-btn-container"
-            ref={ref}
             variants={Animations.movement}
             initial="initialX"
             custom={-20}

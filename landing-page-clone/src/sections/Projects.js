@@ -1,7 +1,11 @@
 import ProjectPanel from "../components/ProjectPanel";
 import { useState } from "react";
 
-function Projects({ changeDarkMode }) {
+import { useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+
+function Projects({ changeCurrentSection }) {
    const projects = [
       {
          client: "ABC Group",
@@ -45,9 +49,21 @@ function Projects({ changeDarkMode }) {
       }
    }
 
+   const controls = useAnimation();
+   const [ref, inView] = useInView();
+
+   useEffect(() => {
+      if (inView) {
+         controls.start("endingXY");
+         changeCurrentSection("projects-page");
+      } else {
+         controls.start("initialY");
+      }
+   }, [controls, inView]);
+
    return (
       <section id="projects-page" className="page-view dark">
-         <div className="main-container">
+         <div className="main-container" ref={ref}>
             <div className="panel-display">
                {projects.map((project, index) => {
                   return (
@@ -57,7 +73,7 @@ function Projects({ changeDarkMode }) {
                         project={project}
                         whichPanel={whichPanel}
                         hoverPanel={hoverPanel}
-                        changeDarkMode={changeDarkMode}
+                        controls={controls}
                      />
                   );
                })}

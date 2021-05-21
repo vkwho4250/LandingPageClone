@@ -27,6 +27,17 @@
    }
 
    p {
-      font-size: calc(max(0.9vw, 16rem));
+      font-size: calc(max(1.4vw, 12rem));
+   }
+}
+
+@media only screen and (max-width: 1024px) {
+   .awards-list-container {
+      margin-top: 5vh;
+      width: 75%;
+
+      h1 {
+         width: 40%;
+      }
    }
 }

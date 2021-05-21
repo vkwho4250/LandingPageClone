@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-function SlideButton({
-   text,
-   direction = "right",
-   weight = "default",
-   darkMode,
-}) {
+function SlideButton({ text, direction = "right", weight = "default" }) {
    const [onHover, setOnHover] = useState(false);
 
    function changeOnHover(e) {
@@ -20,7 +15,7 @@ function SlideButton({
    return (
       <button
          id={`${text}-btn`}
-         className={`slide-btn ${darkMode ? "dark-mode" : ""}`}
+         className="slide-btn"
          onMouseEnter={changeOnHover}
          onMouseLeave={changeOnHover}
       >

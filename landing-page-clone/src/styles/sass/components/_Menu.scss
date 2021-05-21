@@ -13,15 +13,28 @@
       display: none;
    }
 
+   .logo {
+      fill: black;
+   }
+
+   .primary-text {
+      color: black;
+   }
+
    .secondary-color {
       color: white;
    }
 
-   .page-right {
-      padding: 0 0 10vh 5vw;
-   }
-
    .sidebar {
       position: absolute;
+   }
+}
+
+@media only screen and (max-width: 1024px) {
+   #menu {
+      @include flex-container(center, space-between, column);
+      .page-right {
+         width: 150%;
+      }
    }
 }

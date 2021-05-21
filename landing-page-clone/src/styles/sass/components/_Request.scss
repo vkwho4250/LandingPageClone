@@ -21,10 +21,9 @@
 
    #contact-form {
       @include flex-container(center, center, column);
+      margin-right: 5%;
 
-      & > div {
-         width: 65%;
-      }
+      width: 35%;
 
       .big-yellow-btn {
          background: none;
@@ -66,13 +65,25 @@
 
    @include flex-container(center, center, column);
 
-   & > div {
+   .number-container {
       @include flex-container(center, center);
    }
 
    h1 {
       font-size: calc(max(2vw, 30rem));
       color: $siteYellow;
-      margin: 1.5% 0;
+      margin: 2vh 0;
+   }
+}
+
+@media only screen and (max-width: 1024px) {
+   #request-page {
+      #contact-form {
+         width: 100%;
+      }
+
+      .number-container {
+         flex-direction: column;
+      }
    }
 }

@@ -1,22 +1,21 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-function RequestOption({ item, updateRequestDetails }) {
+function RequestOption({ item }) {
    const [checked, setChecked] = useState(false);
 
-   function changeChecked(e) {
-      updateRequestDetails(item);
+   function changeChecked() {
       setChecked(!checked);
    }
 
    const checkedBox = {
       rotate: -45,
-      y: -10,
+      y: 4,
       height: 10,
       borderTop: "none",
       borderRight: "none",
-      borderBottom: "2px solid #ebd301",
-      borderLeft: "2px solid #ebd301",
+      borderBottom: "3px solid #ebd301",
+      borderLeft: "3px solid #ebd301",
    };
    const uncheckedBox = {
       rotate: 0,

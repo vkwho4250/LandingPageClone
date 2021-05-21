@@ -2,13 +2,7 @@ import { motion } from "framer-motion";
 import Animations from "../animation";
 import { useState } from "react";
 
-function PageNavBtn({
-   page,
-   index,
-   darkMode,
-   currentSection,
-   changeCurrentSection,
-}) {
+function PageNavBtn({ page, index, currentSection, changeCurrentSection }) {
    const [onHover, setOnHover] = useState(false);
 
    function changeOnHover(e) {
@@ -19,15 +13,24 @@ function PageNavBtn({
       }
    }
 
-   function updateCurrentSection() {
-      changeCurrentSection(`${page}-page`);
+   async function updateCurrentSection() {
+      const element = document.getElementById(`${page}-page`);
+      console.log(element);
+      // element.scrollIntoView();
+
+      // changeCurrentSection(`${page}-page`);
    }
 
    return (
       <a
          href={`#${page}-page`}
          id={`${page}-btn`}
-         className={`page-btn ${darkMode ? "dark-mode" : ""}`}
+         className={`page-btn ${
+            currentSection === "projects-page" ||
+            currentSection === "awards-page"
+               ? "dark-mode"
+               : ""
+         }`}
          onMouseEnter={changeOnHover}
          onMouseLeave={changeOnHover}
          onClick={updateCurrentSection}

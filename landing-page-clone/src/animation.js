@@ -6,7 +6,7 @@ const movement = {
 };
 
 const textSlide = {
-   hidden: { y: 20, opacity: 0 },
+   hidden: { left: 0, opacity: 0 },
    active: { y: 0, opacity: 1 },
 };
 

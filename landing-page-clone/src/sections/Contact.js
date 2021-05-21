@@ -8,7 +8,7 @@ import YellowButton from "../components/YellowButton";
 import InputForm from "../components/InputForm";
 import Animations from "../animation";
 
-function Contact({ updateContactDetails, changeRequestOpened }) {
+function Contact({ changeRequestOpened, changeCurrentSection }) {
    const controls = useAnimation();
    const [ref, inView] = useInView();
 
@@ -16,19 +16,19 @@ function Contact({ updateContactDetails, changeRequestOpened }) {
       if (inView) {
          controls.start("endingXY");
          controls.start("visible");
+         changeCurrentSection("contact-page");
       } else {
          controls.start("initialY");
-         // controls.start("hidden");
+         controls.start("hidden");
       }
    }, [controls, inView]);
 
    return (
       <section id="contact-page" className="page-view">
-         <div className="main-container contact">
+         <div className="main-container contact" ref={ref}>
             <header>
                <motion.div
                   className="container"
-                  ref={ref}
                   variants={Animations.movement}
                   initial="initialY"
                   custom={20}
@@ -40,7 +40,6 @@ function Contact({ updateContactDetails, changeRequestOpened }) {
                </motion.div>
                <motion.div
                   className="floating-mountains"
-                  ref={ref}
                   variants={Animations.movement}
                   initial="initialY"
                   custom={20}
@@ -51,7 +50,6 @@ function Contact({ updateContactDetails, changeRequestOpened }) {
                </motion.div>
                <motion.div
                   className="container"
-                  ref={ref}
                   variants={Animations.fade}
                   initial="hidden"
                   animate={controls}
@@ -64,18 +62,16 @@ function Contact({ updateContactDetails, changeRequestOpened }) {
             <div className="form-container">
                <motion.div
                   className="input-details"
-                  ref={ref}
                   variants={Animations.movement}
                   initial="initialX"
                   custom={20}
                   animate={controls}
                   transition={{ duration: 0.75, delay: 1 }}
                >
-                  <InputForm updateContactDetails={updateContactDetails} />
+                  <InputForm />
                </motion.div>
                <motion.div
                   className="fixed-form contact-details"
-                  ref={ref}
                   variants={Animations.movement}
                   initial="initialX"
                   custom={20}
@@ -96,15 +92,15 @@ function Contact({ updateContactDetails, changeRequestOpened }) {
                   <div className="contact-method-container">
                      <div className="contact-method">
                         <h3>Our Phone Number</h3>
-                        <a href="#" className="contact-info">
+                        <button className="contact-info">
                            +1 (123) 456-4567
-                        </a>
+                        </button>
                      </div>
                      <div className="contact-method">
                         <h3>Write to Us</h3>
-                        <a href="#" className="contact-info">
+                        <button className="contact-info">
                            clonexlab@gmail.com
-                        </a>
+                        </button>
                      </div>
                      <div className="contact-method">
                         <h3>Address</h3>

@@ -5,9 +5,8 @@ import { useEffect } from "react";
 import Animations from "../animation";
 import PageLayout from "../components/PageLayout";
 import ListItem from "../components/ListItem";
-import SlidingText from "../components/SlidingText";
 
-function Services({ changeRequestOpened, changeDarkMode }) {
+function Services({ changeRequestOpened, changeCurrentSection }) {
    const description =
       "We are a full cycle agency, provide a full range of services to represent your business in a digital environment.";
 
@@ -25,7 +24,7 @@ function Services({ changeRequestOpened, changeDarkMode }) {
    useEffect(() => {
       if (inView) {
          controls.start("endingXY");
-         changeDarkMode(false);
+         changeCurrentSection("services-page");
       } else {
          controls.start("initialX");
       }
@@ -34,14 +33,13 @@ function Services({ changeRequestOpened, changeDarkMode }) {
    return (
       <section id="services-page" className="page-view">
          <div className="main-container">
-            <SlidingText firstSection="Our" secondSection="Expertise" />
-            <SlidingText firstSection="Our" secondSection="Expertise" />
             <PageLayout
                firstHeader="Our"
                secondHeader="Competencies"
                description={description}
                btnText="Start Project"
                changeRequestOpened={changeRequestOpened}
+               image="service"
             />
             <motion.div
                className="page-right"

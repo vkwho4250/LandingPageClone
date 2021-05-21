@@ -39,3 +39,11 @@
       transform-origin: bottom left;
    }
 }
+
+@media only screen and (max-width: 1024px) {
+   .list-item {
+      h3 {
+         font-size: calc(max(3.2vw, 14rem));
+      }
+   }
+}
